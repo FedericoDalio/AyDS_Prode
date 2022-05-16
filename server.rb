@@ -1,3 +1,6 @@
+# import user into server.rb
+# server.rb
+require_relative 'models/user'
 require 'bundler/setup'
 require 'sinatra/base'
 require "sinatra/activerecord"
@@ -17,5 +20,13 @@ class App < Sinatra::Application
 
   get '/' do
     'Hola mundo cruel!!!'
+  end
+end
+
+class CreateUsers < ActiveRecord::Migration[7.0]
+  def change
+    create_table :users do |t|
+      t.string :name
+    end
   end
 end
