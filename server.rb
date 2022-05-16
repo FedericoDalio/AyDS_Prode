@@ -1,5 +1,4 @@
-# import user into server.rb
-# server.rb
+require_relative './models/init.rb'
 require_relative 'models/user'
 require 'bundler/setup'
 require 'sinatra/base'
@@ -27,6 +26,54 @@ class CreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
       t.string :name
+    end
+  end
+end
+
+class AddMatches < ActiveRecord::Migration[7.0]
+  def change
+    create_table :matches do |t|
+      t.references :local, index: true, foreign_key: { to_table: :teams }
+      t.references :visitor, index: true, foreign_key: { to_table: :teams }
+      
+      t.timestamps
+    end
+  end
+end
+
+class AddTeams < ActiveRecord::Migration[7.0]
+  def change
+    create_table :teams do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+class AddForecasts < ActiveRecord::Migration[7.0]
+  def change
+    create_table :forecasts do |t|
+      t.references :user
+      t.references :match
+
+      t.integer :local
+      t.integer :visitor
+
+      t.timestamps
+    end
+  end
+end
+
+class AddResults < ActiveRecord::Migration[7.0]
+  def change
+    create_table :results do |t|
+      t.references :match
+
+      t.integer :local
+      t.integer :visitor
+
+      t.timestamps
     end
   end
 end
