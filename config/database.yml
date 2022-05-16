@@ -6,7 +6,7 @@ default: &default
 
   timeout: 5000
 
-​
+
 
 development:
 
@@ -14,7 +14,7 @@ development:
 
   database: db/forecast_development.sqlite3
 
-​
+
 
 test:
 
@@ -22,7 +22,7 @@ test:
 
   database: db/test.sqlite3
 
-​
+
 
 production:
 
