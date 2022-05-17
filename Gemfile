@@ -2,11 +2,13 @@ ruby '2.7.5'
 
 source "https://rubygems.org"
 
-gem 'sinatra'
-gem 'sinatra-activerecord'
-gem 'sinatra-contrib'
+github 'sinatra/sinatra' do
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+end
 
 gem 'multi_json'
+gem 'sinatra-activerecord'
 gem 'sqlite3'
 gem 'rake'
 

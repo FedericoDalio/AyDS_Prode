@@ -18,7 +18,13 @@ class App < Sinatra::Application
   end
 
   get '/' do
-    'Hola mundo cruel!!!'
+    'Hello guys!'
+  end
+end
+
+  get "/hello/:name" do
+    @name = params[:name]
+    erb :hello_template
   end
 end
 
