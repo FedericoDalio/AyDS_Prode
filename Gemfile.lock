@@ -1,3 +1,21 @@
+GIT
+  remote: https://github.com/sinatra/sinatra.git
+  revision: 83d917649b5a9fc4d45a84d6bec7b65f86848078
+  specs:
+    rack-protection (3.0.0)
+      rack
+    sinatra (3.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 3.0.0)
+      tilt (~> 2.0)
+    sinatra-contrib (3.0.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 3.0.0)
+      sinatra (= 3.0.0)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -12,6 +30,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     concurrent-ruby (1.1.10)
+    diff-lcs (1.5.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     minitest (5.15.0)
@@ -19,24 +38,24 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     rack (2.2.3)
-    rack-protection (2.2.0)
-      rack
     rake (13.0.6)
+    rspec (3.11.0)
+      rspec-core (~> 3.11.0)
+      rspec-expectations (~> 3.11.0)
+      rspec-mocks (~> 3.11.0)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-support (3.11.0)
     ruby2_keywords (0.0.5)
-    sinatra (2.2.0)
-      mustermann (~> 1.0)
-      rack (~> 2.2)
-      rack-protection (= 2.2.0)
-      tilt (~> 2.0)
     sinatra-activerecord (2.0.25)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
-    sinatra-contrib (2.2.0)
-      multi_json
-      mustermann (~> 1.0)
-      rack-protection (= 2.2.0)
-      sinatra (= 2.2.0)
-      tilt (~> 2.0)
     sqlite3 (1.4.2)
     tilt (2.0.10)
     tzinfo (2.0.4)
@@ -48,9 +67,10 @@ PLATFORMS
 DEPENDENCIES
   multi_json
   rake
-  sinatra
+  rspec
+  sinatra!
   sinatra-activerecord
-  sinatra-contrib
+  sinatra-contrib!
   sqlite3
 
 RUBY VERSION
