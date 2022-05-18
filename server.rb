@@ -1,8 +1,8 @@
 require_relative './models/init.rb'
-require_relative 'models/user'
+#require_relative 'models/user'
 require 'bundler/setup'
 require 'sinatra/base'
-require "sinatra/activerecord"
+require 'sinatra/activerecord'
 require 'sinatra/reloader' if Sinatra::Base.environment == :development  
 
 class App < Sinatra::Application
@@ -22,11 +22,10 @@ class App < Sinatra::Application
   end
 end
 
-  get "/hello/:name" do
-    @name = params[:name]
-    erb :hello_template
-  end
-end
+  #get "/hello/:name" do
+  #  @name = params[:name]
+  #  erb :hello_template
+  #end
 
 class CreateUsers < ActiveRecord::Migration[7.0]
   def change
