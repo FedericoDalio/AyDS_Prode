@@ -1,3 +1,3 @@
-# models/user.rb
+ models/user.rb
 class User < ActiveRecord::Base
 end

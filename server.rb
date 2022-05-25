@@ -1,5 +1,5 @@
 require_relative './models/init.rb'
-#require_relative 'models/user'
+#require_relative './models/user'
 require 'bundler/setup'
 require 'sinatra/base'
 require 'sinatra/activerecord'
@@ -22,10 +22,24 @@ class App < Sinatra::Application
   end
 end
 
+ # get '/login' do
+ #
+ #   erb :login
+ #
+ # end
+
   #get "/hello/:name" do
   #  @name = params[:name]
   #  erb :hello_template
   #end
+#configure do
+#
+#  set :sessions, true
+#
+#  set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
+#
+#end
+
 
 class CreateUsers < ActiveRecord::Migration[7.0]
   def change
