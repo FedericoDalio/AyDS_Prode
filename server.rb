@@ -1,10 +1,12 @@
-require_relative './models/init.rb'
-#require_relative './models/user'
+
 require 'bundler/setup'
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require 'sinatra/reloader' if Sinatra::Base.environment == :development  
+require 'sinatra/reloader' 
+require_relative './models/init.rb'
+require_relative './models/user'
 
+if Sinatra::Base.environment == :development  
 class App < Sinatra::Application
   configure :development do
     register Sinatra::Reloader
@@ -94,5 +96,6 @@ class AddResults < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+   end
   end
 end
