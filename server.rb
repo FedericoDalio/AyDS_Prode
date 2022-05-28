@@ -6,95 +6,80 @@ require_relative './models/init.rb'
 require_relative './models/user'
 
 if Sinatra::Base.environment == :development  
-class App < Sinatra::Application
-  configure :development do
-    register Sinatra::Reloader
-    after_reload do
-      puts 'Reloaded...'
+  class App < Sinatra::Application
+    configure :development do
+      register Sinatra::Reloader
+      after_reload do
+        puts 'Reloaded...'
+      end
     end
-  end
 
-  def initialize(app = nil)
-    super()
-  end
+    def initialize(app = nil)
+      super()
+    end
 
-  get '/' do
-    'Hello guys!'
-  end
+    get '/' do
+      'Hello!'
+    end
+
+    get '/login' do
+     erb :login
+    end
+
+    get '/signup' do
+     erb :signup
+    end
+
+get '/demo' do
+  User.create(name:'usuario_demo')
 end
 
- # get '/login' do
- #
- #   erb :login
- #
- # end
+    # implement a login method
 
-  #get "/hello/:name" do
-  #  @name = params[:name]
-  #  erb :hello_template
-  #end
-#configure do
-#
-#  set :sessions, true
-#
-#  set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
-#
-#end
-
-
-class CreateUsers < ActiveRecord::Migration[7.0]
-  def change
-    create_table :users do |t|
-      t.string :name
+    post '/login' do
+      #json = JSON.parse(request.body.read)
+      user = User.find_by(name: request['name'])
+      if user && user.password == request['password']
+        session[:user_id] = user.id
+        redirect to "/play"
+      else
+        redirect to "/login"
+      end
     end
-  end
-end
 
-class AddMatches < ActiveRecord::Migration[7.0]
-  def change
-    create_table :matches do |t|
-      t.references :local, index: true, foreign_key: { to_table: :teams }
-      t.references :visitor, index: true, foreign_key: { to_table: :teams }
-      
-      t.timestamps
+
+    post '/signup' do
+      json = JSON.parse(request.body.read)
+      user = User.create(name:json['name'], password:json['password'])
+      if user && user.password == json['password']
+        session[:user_id] = user.id
+        redirect to "/login"
+      else
+        redirect to "/signup"
+      end
     end
-  end
-end
 
-class AddTeams < ActiveRecord::Migration[7.0]
-  def change
-    create_table :teams do |t|
-      t.string :name
 
-      t.timestamps
+
+    configure do
+      set :sessions, true
+      set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
+      set :root,  File.dirname(__FILE__)
+      set :views, Proc.new { File.join(root, 'views') }
     end
-  end
-end
 
-class AddForecasts < ActiveRecord::Migration[7.0]
-  def change
-    create_table :forecasts do |t|
-      t.references :user
-      t.references :match
+    # Configure a before filter to protect private routes!
+    # server.rb
 
-      t.integer :local
-      t.integer :visitor
-
-      t.timestamps
+    before do
+      if session[:user_id]
+        @current_user = User.find_by(id: session[:user_id])
+      else
+        public_pages = ["/", "/login","/signup", "/demo"]
+        if !public_pages.include?(request.path_info)
+          redirect '/login'
+        end
+      end
     end
-  end
-end
-
-class AddResults < ActiveRecord::Migration[7.0]
-  def change
-    create_table :results do |t|
-      t.references :match
-
-      t.integer :local
-      t.integer :visitor
-
-      t.timestamps
-    end
-   end
   end
 end
