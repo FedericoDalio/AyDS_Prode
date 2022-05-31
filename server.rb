@@ -51,10 +51,8 @@ if Sinatra::Base.environment == :development
     json = JSON.parse(request.body.read)
     user = User.create(name:json['name'], password:json['password'])
     if user.save
-      puts "user created successfully"
       redirect "/login"
          else
-           puts user.errors.full_messages.join(", ")
            redirect "/signup"
     end
      end
