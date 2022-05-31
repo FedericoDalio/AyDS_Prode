@@ -19,7 +19,7 @@ if Sinatra::Base.environment == :development
     end
 
     get '/' do
-      'Hello!'
+      erb :inicio
     end
 
     get '/login' do
@@ -30,9 +30,8 @@ if Sinatra::Base.environment == :development
      erb :signup
     end
 
-get '/demo' do
-  User.create(name:'usuario_demo')
-end
+
+
 
     # implement a login method
 
@@ -48,16 +47,17 @@ end
     end
 
 
-    post '/signup' do
-      json = JSON.parse(request.body.read)
-      user = User.create(name:json['name'], password:json['password'])
-      if user && user.password == json['password']
-        session[:user_id] = user.id
-        redirect to "/login"
-      else
-        redirect to "/signup"
-      end
+   post '/signup' do
+    json = JSON.parse(request.body.read)
+    user = User.create(name:json['name'], password:json['password'])
+    if user.save
+      puts "user created successfully"
+      redirect "/login"
+         else
+           puts user.errors.full_messages.join(", ")
+           redirect "/signup"
     end
+     end
 
 
 
