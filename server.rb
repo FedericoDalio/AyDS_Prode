@@ -33,7 +33,7 @@ if Sinatra::Base.environment == :development
     end
 
     get '/play' do 
-      String(session[:user_id])
+      erb :play
     end
 
 
