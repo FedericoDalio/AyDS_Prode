@@ -1,0 +1,7 @@
+Team.create(name:"Manchester United")
+Team.create(name:"Manchester City")
+Team.create(name:"Aston Villa")
+Team.create(name:"West Ham United")
+Team.create(name:"Leeds United")
+Team.create(name:"Chelsea")
+Team.create(name:"Liverpool")

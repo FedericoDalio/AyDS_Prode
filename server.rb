@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/reloader' 
 require_relative './models/init.rb'
-require_relative './models/user'
+##require_relative './models/user'
 
 if Sinatra::Base.environment == :development  
   class App < Sinatra::Application
@@ -18,6 +18,8 @@ if Sinatra::Base.environment == :development
       super()
     end
 
+    set :public_folder, 'public'
+
     get '/' do
       erb :inicio
     end
@@ -30,14 +32,15 @@ if Sinatra::Base.environment == :development
      erb :signup
     end
 
-
+    get '/play' do 
+      String(session[:user_id])
+    end
 
 
     # implement a login method
 
     post '/login' do
-      #json = JSON.parse(request.body.read)
-      user = User.find_by(name: request['name'])
+      user = User.find_by(name: request['username'])
       if user && user.password == request['password']
         session[:user_id] = user.id
         redirect to "/play"
@@ -48,14 +51,12 @@ if Sinatra::Base.environment == :development
 
 
    post '/signup' do
-    json = JSON.parse(request.body.read)
-    user = User.create(name:json['name'], password:json['password'])
-    if user.save
-      redirect "/login"
-         else
-           redirect "/signup"
-    end
+    if params['username'] != User.find_by(name: request['username']) 
+      user = User.create(name:params['username'], password:request['password'])
+     else 
+      redirect '/signup'
      end
+    end
 
 
 
@@ -73,7 +74,7 @@ if Sinatra::Base.environment == :development
       if session[:user_id]
         @current_user = User.find_by(id: session[:user_id])
       else
-        public_pages = ["/", "/login","/signup", "/demo"]
+        public_pages = ["/", "/login","/signup"]
         if !public_pages.include?(request.path_info)
           redirect '/login'
         end
