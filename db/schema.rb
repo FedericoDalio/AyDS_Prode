@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_151140) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_03_134711) do
+  create_table "matches", force: :cascade do |t|
+    t.integer "local_id"
+    t.integer "visitor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "date"
+    t.index ["local_id"], name: "index_matches_on_local_id"
+    t.index ["visitor_id"], name: "index_matches_on_visitor_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
   end
@@ -21,4 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_151140) do
     t.string "password_digest"
   end
 
+  add_foreign_key "matches", "teams", column: "local_id"
+  add_foreign_key "matches", "teams", column: "visitor_id"
 end

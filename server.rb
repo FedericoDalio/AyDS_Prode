@@ -32,9 +32,13 @@ if Sinatra::Base.environment == :development
      erb :signup
     end
 
-    get '/play' do 
+    get '/elegirFecha' do 
       erb :play
     end
+    
+    get '/guardarPrediccion' do
+
+      end
 
 
     # implement a login method
@@ -43,7 +47,7 @@ if Sinatra::Base.environment == :development
       user = User.find_by(name: request['username'])
       if user && user.password == request['password']
         session[:user_id] = user.id
-        redirect to "/play"
+        redirect to "/elegirFecha"
       else
         redirect to "/login"
       end
@@ -57,6 +61,14 @@ if Sinatra::Base.environment == :development
       redirect '/signup'
      end
     end
+
+    post '/elegirFecha' do
+      arreglo = Array.new
+      Match.where(date: params['date']).find_each do |match|
+         arreglo.push(match)
+        end
+      redirect '/guardarPrediccion'
+     end
 
 
 
