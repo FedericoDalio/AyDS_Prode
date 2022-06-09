@@ -37,7 +37,7 @@ if Sinatra::Base.environment == :development
     end
     
     get '/guardarPrediccion' do
-
+          erb :guardarprediccion
       end
 
 
@@ -63,12 +63,20 @@ if Sinatra::Base.environment == :development
     end
 
     post '/elegirFecha' do
-      arreglo = Array.new
-      Match.where(date: params['date']).find_each do |match|
-         arreglo.push(match)
+      @arreglo = []
+      Match.where(date: request['date']).find_each do |match|
+         @arreglo.push(match)
         end
-      redirect '/guardarPrediccion'
+      erb :guardarprediccion
      end
+
+     post '/guardarPrediccion' do
+      user = User.find_by(id: session[:user_id])
+      match1 = Match.find_by(id: params['elige partido'])
+        forecast = Forecast.create(user:user ,match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i)
+        redirect '/elegirFecha'
+      end
+
 
 
 

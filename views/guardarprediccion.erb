@@ -1,0 +1,14 @@
+<h1> Elige partido y da tu prediccion <h1>
+
+
+	
+	<form action="/guardarPrediccion" method="post">
+	<select name="elige partido">
+	 <% @arreglo && @arreglo.each do |partido| %>
+	<option value="<%= partido.id %>"><%= partido.local.name %> vs. <%= partido.visitor.name %></option> 
+	 <% end %>
+	</select>	
+	<input type="number" name="gol local" placeholder="gol local" />
+	<input type="number" name="gol visitante" placeholder="gol visitante" />
+	<input type="submit" name="button" value="Guardar" />
+</form>
