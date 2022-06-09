@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_09_142549) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_09_214107) do
   create_table "forecasts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "match_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_142549) do
     t.integer "visitor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "score"
     t.index ["match_id"], name: "index_forecasts_on_match_id"
     t.index ["user_id"], name: "index_forecasts_on_user_id"
   end
@@ -30,6 +31,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_142549) do
     t.integer "date"
     t.index ["local_id"], name: "index_matches_on_local_id"
     t.index ["visitor_id"], name: "index_matches_on_visitor_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "match_id"
+    t.integer "local"
+    t.integer "visitor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_results_on_match_id"
   end
 
   create_table "teams", force: :cascade do |t|
