@@ -8,7 +8,7 @@
 	<option value="<%= partido.id %>"><%= partido.local.name %> vs. <%= partido.visitor.name %></option> 
 	 <% end %>
 	</select>	
-	<input type="number" name="gol local" placeholder="gol local" />
-	<input type="number" name="gol visitante" placeholder="gol visitante" />
+	<input type="number" min="0" max="100" name="gol local" placeholder="gol local" />
+	<input type="number" min="0" max="100" name="gol visitante" placeholder="gol visitante" />
 	<input type="submit" name="button" value="Guardar" />
 </form>
