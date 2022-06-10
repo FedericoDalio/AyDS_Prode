@@ -60,7 +60,7 @@ if Sinatra::Base.environment == :development
 
    post '/signup' do
     if params['username'] != User.find_by(name: request['username']) 
-      user = User.create(name:params['username'], password:request['password'])
+      user = User.create(name:params['username'], password:request['password'], score_total: 0)
      else 
       redirect '/signup'
      end
@@ -77,7 +77,7 @@ if Sinatra::Base.environment == :development
      post '/guardarPrediccion' do
       user = User.find_by(id: session[:user_id])
       match1 = Match.find_by(id: params['elige partido'])
-        forecast = Forecast.create(user:user ,match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i)
+        forecast = Forecast.create(user:user ,match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i, score: 0)
         redirect '/play'
       end
 

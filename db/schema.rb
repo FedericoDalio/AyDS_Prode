@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_09_214107) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_10_192709) do
   create_table "forecasts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "match_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_214107) do
     t.string "name"
     t.string "password"
     t.string "password_digest"
+    t.integer "total_score"
   end
 
   add_foreign_key "matches", "teams", column: "local_id"
