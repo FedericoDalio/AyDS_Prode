@@ -31,7 +31,7 @@
     }
 
     body{
-        background: var(--violeta);
+        background: var(--rojo);
     }
 
     header{
@@ -47,7 +47,22 @@
         justify-content: space-between;
         z-index: 0;
     }
+    
+       .centrado{
+            margin:10px auto;
+            display:block;
+    }
 
+    .centrado{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+    img.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
 
 
    header .logo{
