@@ -1,0 +1,58 @@
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+    :root{
+    	--celeste: #04f5ff;
+    	--rojo: #e90052;
+    	--blanco: #ffffff;
+    	--verde: #00ff85;
+    	--violeta: #38003c;
+    	--degradado:linear-gradient(90deg, var(--blanco), var(--celeste));
+    }
+
+        *{
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+            }
+
+        .form-register {
+                width: 400px;
+                background: var(--violeta);
+                padding: 30px;
+                margin: auto;
+                margin-top: 100px;
+                border-radius: 4px;
+                color: white;
+                box-shadow: 7px 13px 37px #000;
+        }
+
+        .form-register h4 {
+            font-size: 22px;
+            margin-bottom: 20px;
+
+        }
+
+        .controls {
+            width: 100%;
+            background: var(--violeta);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            border: 1px solid white;
+            font-family: 'calibri';
+            font-size: 18px;
+        }
+
+        .form-register .botons {
+            width: 100%;
+            background: var(--verde);
+            border: none;
+            padding: 12px;
+            color: white;
+            margin: 16px 0;
+            font-size: 16px;
+        }

@@ -1,9 +1,20 @@
-  <h1>Login</h1>
-  <% if @error %>
-      <div class="error">Login failed.</div>
-  <% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <link rel="stylesheet" href="./estilos4.css">
+  <title>Iniciar Sesion</title>
+  </head>
+    <body>
+      <section class="form-register">
   <form action="/login" method="post">
-      <input type="text" name="username" placeholder="Username" />
-      <input type="password" name="password" placeholder="Password" />
-      <input type="submit" name="button" value="Login" />
+    <h4>Iniciar Sesion</h4>
+      <input class="controls" type="text" name="username" placeholder="Username" />
+      <input class="controls" type="password" name="password" placeholder="Password" />
+      <input class="botons" type="submit" name="button" value="Login" />
   </form>
+      </section>
+    </body>
+  </html>

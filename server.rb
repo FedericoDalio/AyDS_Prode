@@ -60,7 +60,7 @@ if Sinatra::Base.environment == :development
 
    post '/signup' do
     if params['username'] != User.find_by(name: request['username']) 
-      user = User.create(name:params['username'], password:request['password'], score_total: 0)
+      user = User.create(name:params['username'], password:request['password'], total_score: 0)
      else 
       redirect '/signup'
      end
