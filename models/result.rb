@@ -2,10 +2,11 @@ class Result < ActiveRecord::Base
   belongs_to :match
   after_save :actualizarPuntaje
 
-  private
+  
 
   def actualizarPuntaje
-    Forecast.where{match: match}.find_each do |p|
+    partido = Match.find_by(id: match.id)
+    Forecast.where{"match: partido"}.find_each do |p|
   if (p.local == local) && (p.visitor == visitor)
     p.score = 3
     p.user.score_total = p.user.score_total + 3
@@ -13,6 +14,8 @@ class Result < ActiveRecord::Base
     p.score = 1
     p.user.score_total = p.user.score_total + 1
 
-  end
+        end
+      end
+    end
   end
 end

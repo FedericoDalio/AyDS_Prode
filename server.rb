@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/reloader' 
 require_relative './models/init.rb'
+require_relative './models/result.rb'
 ##require_relative './models/user'
 
 if Sinatra::Base.environment == :development  
