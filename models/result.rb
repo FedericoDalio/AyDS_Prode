@@ -5,11 +5,11 @@ class Result < ActiveRecord::Base
   private
 
   def actualizarPuntaje
-    Forecast.where{match: result.match}.find_each do |p|
-  if (p.local == result.local) && (p.visitor == result.visitor)
+    Forecast.where{match: match}.find_each do |p|
+  if (p.local == local) && (p.visitor == visitor)
     p.score = 3
     p.user.score_total = p.user.score_total + 3
-  if ((p.local < p.visitor) && (result.local < result.visitor)) || ((p.local > p.visitor) && (result.local > result.visitor))
+  if ((p.local < p.visitor) && (local < visitor)) || ((p.local > p.visitor) && (local > visitor))
     p.score = 1
     p.user.score_total = p.user.score_total + 1
 

@@ -1,4 +1,4 @@
-class AddResult < ActiveRecord::Migration[7.0]
+class Results < ActiveRecord::Migration[7.0]
   def change
         create_table :results do |t|
       t.references :match

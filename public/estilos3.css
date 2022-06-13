@@ -19,6 +19,11 @@
         text-transform: capitalize;
             }
 
+            body{
+        background: url(./img/fondo.jpeg);
+        background-size: 100%;
+    }
+
         .form-register {
                 width: 400px;
                 background: var(--violeta);
