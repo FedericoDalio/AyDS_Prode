@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	content="width=device-width,
+	inicial-scale=1.0">
+	<title>Lista de Partidos</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" href="./estilos2.css">
+</head>
+
+
+<body>
+
+<h1>Listando Partidos</h1>
+<form action="/verPartidos" method="post">
+ <% @arreglo.each do |partido| %>
+   <p> <%= partido.local.name %> vs. <%= partido.visitor.name %>  </p>
+<% end %>
+	<header>
+		<a href="#" class="logo">
+			<span>PRODE</span> PL</a>
+			<nav class="navbar">
+				<a href="/">Inicio</a>
+				<a href="/play">Jugar</a>
+			</nav>
+	</header>
+	
+
+</form>
+
+<br>
+</body>
+
+</html>	

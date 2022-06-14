@@ -41,6 +41,14 @@ if Sinatra::Base.environment == :development
       erb :elegirFecha
     end
     
+     get '/verPartidos' do
+          @arreglo = []
+          Match.find_each do |match|
+          @arreglo.push(match)
+          end
+          erb :verPartidos
+      end
+    
     get '/guardarPrediccion' do
           erb :guardarprediccion
       end
