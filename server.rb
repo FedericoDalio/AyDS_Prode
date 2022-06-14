@@ -45,6 +45,10 @@ if Sinatra::Base.environment == :development
           erb :guardarprediccion
       end
 
+    get '/optional' do 
+          erb :optional
+        end
+
 
     # implement a login method
 
@@ -63,7 +67,7 @@ if Sinatra::Base.environment == :development
     if params['username'] != User.find_by(name: request['username']) 
       user = User.create(name:params['username'], password:request['password'], total_score: 0)
      else 
-      redirect '/signup'
+      redirect '/login'
      end
     end
 
@@ -79,7 +83,7 @@ if Sinatra::Base.environment == :development
       user = User.find_by(id: session[:user_id])
       match1 = Match.find_by(id: params['elige partido'])
         forecast = Forecast.create(user:user ,match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i, score: 0)
-        redirect '/play'
+        redirect '/optional'
       end
 
 

@@ -30,7 +30,8 @@
     }
 
     body{
-        background: var(--violeta);
+        background: url(./img/fondo2.jpg);
+        background-size: 100%;
     }
 
     header{
