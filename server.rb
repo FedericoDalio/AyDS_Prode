@@ -102,12 +102,17 @@ if Sinatra::Base.environment == :development
 
      post '/verPartidos' do
       @arreglo = []
+      @arreglo2 = []
       Match.where(date: request['date']).find_each do |match|
-        @arreglo.push(match)
+        if !(match.id = Result.find_by(match_id: match.id))
+            @arreglo.push(match)
+        else
+            partido = Result.find_by(match_id: match.id)
+            @arreglo2.push(partido)
           end
+      end
       erb :verPartidos2
-
-     end
+    end
 
 
      post '/guardarPrediccion' do

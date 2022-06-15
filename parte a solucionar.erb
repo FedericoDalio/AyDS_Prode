@@ -1,0 +1,9 @@
+	 <% @arreglo2.each do |part| %>
+	<li>
+		<span class="gol local"><%= part.local %></span>
+		<span class="local"><%= part.match.local.name %></span>
+		<span class="vs">VS</span>
+		<span class="visitante"><%= part.match.visitor.name %></span>
+		<span class="gol visitante"><%= part.visitor %></span>
+	</li>
+	<% end %>
