@@ -92,8 +92,14 @@ if Sinatra::Base.environment == :development
 
     post '/elegirFecha' do
       @arreglo = []
+      partidosJugados = []
+      Result.find_each do |resultado|
+          partidosJugados.push(resultado.match)
+       end
       Match.where(date: request['date']).find_each do |match|
+        if !(partidosJugados.include?(match))
          @arreglo.push(match)
+          end
         end
       erb :guardarprediccion
      end
