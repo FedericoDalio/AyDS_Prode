@@ -104,10 +104,10 @@ if Sinatra::Base.environment == :development
       @arreglo = []
       @arreglo2 = []
       Match.where(date: request['date']).find_each do |match|
-        if !(match.id = Result.find_by(match_id: match.id))
+      partido = Result.find_by(match: match)
+        if (partido == nil)
             @arreglo.push(match)
         else
-            partido = Result.find_by(match_id: match.id)
             @arreglo2.push(partido)
           end
       end

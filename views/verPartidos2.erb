@@ -8,6 +8,15 @@
 <body>
 <ul>
 	
+		<% @arreglo2.each do |part| %>
+	<li>
+		<span class="gol local"><%= part.local %></span>
+		<span class="local"><%= part.match.local.name %></span>
+		<span class="vs">VS</span>
+		<span class="visitante"><%= part.match.visitor.name %></span>
+		<span class="gol visitante"><%= part.visitor %></span>
+	</li>
+	<% end %>
 	<% @arreglo.each do |match| %>
 	<li>
 		<span class="gol local">-</span>
@@ -17,7 +26,6 @@
 		<span class="gol visitante">-</span>
 	</li>
 	<% end %>
-
 </ul>
 
 </body>
