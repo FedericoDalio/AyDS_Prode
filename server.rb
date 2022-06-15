@@ -40,6 +40,16 @@ if Sinatra::Base.environment == :development
     get '/elegirFecha' do 
       erb :elegirFecha
     end
+
+    get '/tablaGeneral' do 
+        @arregloU = []
+        User.find_each do |user|
+          @arregloU.push(user)
+        end
+        @arregloU = @arregloU.sort_by(&:total_score)
+        @arregloU = @arregloU.reverse
+      erb :tablaGeneral
+    end
     
      get '/verPartidos' do
           @arreglo = []
@@ -74,8 +84,9 @@ if Sinatra::Base.environment == :development
    post '/signup' do
     if params['username'] != User.find_by(name: request['username']) 
       user = User.create(name:params['username'], password:request['password'], total_score: 0)
-     else 
       redirect '/login'
+     else 
+      redirect '/signup'
      end
     end
 
