@@ -1,2 +1,2 @@
-partido = Match.find_by(id: 1510)
-Result.create(match: partido, local: 1, visitor: 1)
+partido = Match.find_by(id: 1519)
+Result.create(match: partido, local: 0, visitor: 0)
