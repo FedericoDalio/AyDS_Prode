@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Partidos de la fecha</title>
+	<link rel="stylesheet" href="./estilotabla2.css">
+</head>
+<body>
+<ul>
+	
+	<% @arreglo.each do |match| %>
+	<li>
+		<span class="gol local">-</span>
+		<span class="local"><%= match.local.name %></span>
+		<span class="vs">VS</span>
+		<span class="visitante"><%= match.visitor.name %></span>
+		<span class="gol visitante">-</span>
+	</li>
+	<% end %>
+
+
+</ul>
+
+</body>
+</html>

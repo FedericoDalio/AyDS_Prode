@@ -52,11 +52,7 @@ if Sinatra::Base.environment == :development
     end
     
      get '/verPartidos' do
-          @arreglo = []
-          Match.find_each do |match|
-          @arreglo.push(match)
-          end
-          erb :verPartidos
+          erb:verPartidos
       end
     
     get '/guardarPrediccion' do
@@ -103,6 +99,16 @@ if Sinatra::Base.environment == :development
         end
       erb :guardarprediccion
      end
+
+     post '/verPartidos' do
+      @arreglo = []
+      Match.where(date: request['date']).find_each do |match|
+        @arreglo.push(match)
+          end
+      erb :verPartidos2
+
+     end
+
 
      post '/guardarPrediccion' do
       user = User.find_by(id: session[:user_id])
