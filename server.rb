@@ -37,6 +37,10 @@ if Sinatra::Base.environment == :development
       erb :play
     end
 
+    get '/misPredicciones' do
+      erb:misPred
+    end
+
     get '/elegirFecha' do 
       erb :elegirFecha
     end
