@@ -27,18 +27,24 @@
 		</thead>
 
 		<tbody class="table-hover">
-			<tr>
-				<td class="text-left">1</td>
-				<td class="text-left">2 real VS barsa 3</td>
-				<td class="text-left">3-1</td>
-				<td class="text-left">1</td>
-			</tr>
-			<tr>
-				<td class="text-left">1</td>
-				<td class="text-left">2 real VS barsa 3</td>
-				<td class="text-left">3-1</td>
-				<td class="text-left">1</td>
-			</tr>			
+<% @user_forecast.find_each do |uf| %>
+	<% m = @match.find_by(id: uf.match_id) %>
+	<% if !(m = nill) %>
+		<tr>
+			<td class="text-left"><%= m.date %></td>
+			<td class="text-left"><%=uf.local%><%=uf.match.local%><%=uf.match.visitor%><%=uf.visitor%></td>
+			<td class="text-left"><%=m.local%>-<%=m.visitor%></td>
+			<td class="text-left"><%=uf.score%></td>
+		</tr>
+		<% else %>
+				<tr>
+					<td class="text-left"><%= m.date %></td>
+					<td class="text-left"><%=uf.local%><%=uf.match.local%><%=uf.match.visitor%><%=uf.visitor%></td>
+					<td class="text-left">sin jugar</td>
+					<td class="text-left">-</td>
+				</tr>
+			<% end %>
+		<% end %> 			
 		</tbody>
 	</table>
 </body>
