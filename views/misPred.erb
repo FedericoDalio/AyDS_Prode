@@ -27,9 +27,6 @@
 		</thead>
 
 		<tbody class="table-hover">
-<% @user_forecast.find_each do |uf| %>
-	<% m = @match.find_by(id: uf.match_id) %>
-	<% if !(m = nill) %>
 		<tr>
 			<td class="text-left"><%= m.date %></td>
 			<td class="text-left"><%=uf.local%><%=uf.match.local%><%=uf.match.visitor%><%=uf.visitor%></td>

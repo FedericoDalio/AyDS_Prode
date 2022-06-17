@@ -10,11 +10,13 @@
 	<link rel="stylesheet" href="./estilos2.css">
 </head>
 
+<% user = User.find_by(id: session[:user_id]) %>
 
 <body>
 	<header>
 		<a href="#" class="logo">
-			<span>PRODE</span> PL</a>
+			<span>PRODE</span> PL
+			<p style="color: black"> Logged In As <%= user.name %> </p></a>
 			<nav class="navbar">
 				<a href="/elegirFecha">Realizar prediccion</a>
 				<a href="/verPartidos">ver Partidos</a>
