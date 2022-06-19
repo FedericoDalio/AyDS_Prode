@@ -15,6 +15,9 @@
 		<span class="vs">VS</span>
 		<span class="visitante"><%= part.match.visitor.name %></span>
 		<span class="gol visitante"><%= part.visitor %></span>
+		<label>&nbsp;<span>&nbsp</span></label>
+		<label>&nbsp;<span>&nbsp</span></label>
+		<span class="Puntaje Obtenido"><%=part.score %></span>
 	</li>
 	<% end %>
 	<% @arreglo.each do |match| %>
@@ -24,8 +27,12 @@
 		<span class="vs">VS</span>
 		<span class="visitante"><%= match.visitor.name %></span>
 		<span class="gol visitante">-</span>
+		<label>&nbsp;<span>&nbsp</span></label>
+		<label>&nbsp;<span>&nbsp</span></label>
+		<span class="Puntaje Obtenido">-</span>
 	</li>
 	<% end %>
+	
 </ul>
 
 </body>
