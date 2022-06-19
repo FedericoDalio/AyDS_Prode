@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="./estiloPre.css">
 </head>
 
+
+
 <body>
 	<div class="table-title">
 		<h3>Mis predicciones</h3>
@@ -28,20 +30,22 @@
 
 		<tbody class="table-hover">
 		<tr>
+		<% user = User.find_by(id: session[:user_id])  %>
+		<% f= Forecast.where(user: user).find_each %>
+     		<% m = Result.find_by(match: f.match) %> 
+		
 			<td class="text-left"><%= m.date %></td>
-			<td class="text-left"><%=uf.local%><%=uf.match.local%><%=uf.match.visitor%><%=uf.visitor%></td>
+			<td class="text-left"><%=f.local%><%=f.match.local%><%=f.match.visitor%><%=f.visitor%></td>
 			<td class="text-left"><%=m.local%>-<%=m.visitor%></td>
-			<td class="text-left"><%=uf.score%></td>
+			<td class="text-left"><%=f.score%></td>
 		</tr>
-		<% else %>
 				<tr>
 					<td class="text-left"><%= m.date %></td>
-					<td class="text-left"><%=uf.local%><%=uf.match.local%><%=uf.match.visitor%><%=uf.visitor%></td>
+					<td class="text-left"><%=f.local%><%=f.match.local%><%=f.match.visitor%><%=f.visitor%></td>
 					<td class="text-left">sin jugar</td>
 					<td class="text-left">-</td>
-				</tr>
-			<% end %>
-		<% end %> 			
+				</tr>			
 		</tbody>
 	</table>
-</body>
+</body>	      
+	

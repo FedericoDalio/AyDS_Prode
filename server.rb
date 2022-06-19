@@ -38,17 +38,7 @@ if Sinatra::Base.environment == :development
     end
 
     get '/misPredicciones' do
-      user = User.find_by(id: session[:user_id])
-      @user_forecats = []
-      @matchs = []
-      Forecast.where(user: user).find_each do |f| 
-        @user_forecats.push(f)
-        m = Result.find_by(match: f.match)
-        if !(m == nil)
-          @matchs.push(m)
-        end
-      end
-      erb :misPred
+      erb :misPred1
     end
 
     get '/elegirFecha' do 
@@ -100,6 +90,7 @@ if Sinatra::Base.environment == :development
      end
     end
 
+
     post '/elegirFecha' do
       @arreglo = []
       partidosJugados = []
@@ -128,6 +119,20 @@ if Sinatra::Base.environment == :development
       erb :verPartidos2
     end
 
+     post '/misPredicciones' do
+      @arreglo = []
+      @arreglo2 = []
+      Match.where(date: request['date']).find_each do |match|
+      partido = Forecast.find_by(match: match)
+        if (partido == nil)
+            @arreglo.push(match)
+        else
+            @arreglo2.push(partido)
+          end
+      end
+      erb :misPred2
+    end
+   
 
      post '/guardarPrediccion' do
       user = User.find_by(id: session[:user_id])
