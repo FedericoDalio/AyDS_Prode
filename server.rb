@@ -49,6 +49,10 @@ if Sinatra::Base.environment == :development
       erb :elegirFecha
     end
 
+    get '/elegirFecha2' do 
+      erb :elegirFecha2
+    end
+
     get '/tablaGeneral' do 
         @arregloU = []
         User.find_each do |user|
@@ -109,6 +113,21 @@ if Sinatra::Base.environment == :development
       erb :guardarprediccion
      end
 
+    post '/elegirFecha2' do
+      @arreglo = []
+      partidosJugados = []
+      Result.find_each do |resultado|
+          partidosJugados.push(resultado.match)
+       end
+      Match.where(date: request['date']).find_each do |match|
+        if !(partidosJugados.include?(match))
+         @arreglo.push(match)
+          end
+        end
+      erb :CargarResultados
+     end
+
+
      post '/verPartidos' do
       @arreglo = []
       @arreglo2 = []
@@ -146,14 +165,14 @@ if Sinatra::Base.environment == :development
       end
 
 
-     post '/cargarResultado' do
+     post '/CargarResultados' do
          user = User.find_by(id: session[:user_id])
-         if(user.name != admin)then
-            redirect '/play'
+         if(user.name=='admin')then
+            match1 = Match.find_by(id: params['elige partido'])
+            forecast = Result.create(match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i)
+            redirect '/play'     
          else   
- 	 match1 = Match.find_by(id: params['elige partido'])
-        forecast = Forecast.create(user:user ,match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i, score: 0)
-         erb :CargarResultado
+ 	     redirect '/'
          end
      end
     configure do
