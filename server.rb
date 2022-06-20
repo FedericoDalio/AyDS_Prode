@@ -106,14 +106,20 @@ if Sinatra::Base.environment == :development
 
 
     post '/elegirFecha' do
+      user = User.find_by(id: session[:user_id])
       @arreglo = []
       partidosJugados = []
+      predicciones = []
       Result.find_each do |resultado|
           partidosJugados.push(resultado.match)
        end
+      Forecast.where(user: user).find_each do |f|
+          part = f.match
+          predicciones.push(part)
+        end
       Match.where(date: request['date']).find_each do |match|
-        if !(partidosJugados.include?(match))
-         @arreglo.push(match)
+        if (!(partidosJugados.include?(match)) && !(predicciones.include?(match)))
+              @arreglo.push(match)
           end
         end
       erb :guardarprediccion
