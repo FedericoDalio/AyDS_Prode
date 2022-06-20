@@ -25,6 +25,10 @@ if Sinatra::Base.environment == :development
       erb :inicio
     end
 
+    get '/cargarResultados'do
+      erb :CargarResultados
+    end
+
     get '/login' do
      erb :login
     end
@@ -142,8 +146,16 @@ if Sinatra::Base.environment == :development
       end
 
 
-
-
+     post '/cargarResultado' do
+         user = User.find_by(id: session[:user_id])
+         if(user.name != admin)then
+            redirect '/play'
+         else   
+ 	 match1 = Match.find_by(id: params['elige partido'])
+        forecast = Forecast.create(user:user ,match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i, score: 0)
+         erb :CargarResultado
+         end
+     end
     configure do
       set :sessions, true
       set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
