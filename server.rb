@@ -62,6 +62,12 @@ if Sinatra::Base.environment == :development
      get '/verPartidos' do
           erb:verPartidos
       end
+
+      get '/cierredeSesion' do
+        session.delete(:user_id)
+        @current_user = nil
+        redirect '/'
+      end
     
     get '/guardarPrediccion' do
           erb :guardarprediccion
@@ -163,13 +169,10 @@ if Sinatra::Base.environment == :development
       set :views, Proc.new { File.join(root, 'views') }
     end
 
-    # Configure a before filter to protect private routes!
-    # server.rb
-
     before do
-      if session[:user_id]
+      if session[:user_id] && session[:user_id]
         @current_user = User.find_by(id: session[:user_id])
-      else
+      else 
         public_pages = ["/", "/login","/signup"]
         if !public_pages.include?(request.path_info)
           redirect '/login'
