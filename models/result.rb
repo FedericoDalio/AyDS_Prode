@@ -12,12 +12,13 @@ class Result < ActiveRecord::Base
           p.save
           p.user.total_score = p.user.total_score + 3
           p.user.save
-      if (((p.local < p.visitor) && (local < visitor)) || ((p.local > p.visitor) && (local > visitor)))
+      elsif (((p.local < p.visitor) && (local < visitor)) || ((p.local > p.visitor) && (local > visitor)))
           p.score = 1
           p.save
           p.user.total_score = p.user.total_score + 1
           p.user.save
-        end
+      else
+        p.score = 0
       end
     end
   end

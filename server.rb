@@ -25,8 +25,13 @@ if Sinatra::Base.environment == :development
       erb :inicio
     end
 
-    get '/cargarResultados'do
+    get '/cargarResultados' do
+      user = User.find_by(id: session[:user_id])
+      if (user.name == "admin")
       erb :CargarResultados
+      else
+        redirect '/play'
+      end
     end
 
     get '/login' do
@@ -38,15 +43,25 @@ if Sinatra::Base.environment == :development
     end
 
     get '/play' do
+      user = User.find_by(id: session[:user_id])
+      if !(user.name == "admin")
       erb :play
+        else
+          redirect '/play_admin'
+      end
     end
 
     get '/misPredicciones' do
       erb :misPred1
     end
 
-    get '/elegirFecha' do 
+    get '/elegirFecha' do
+      user = User.find_by(id: session[:user_id])
+      if !(user.name == "admin") 
       erb :elegirFecha
+        else
+          redirect '/play_admin'
+        end
     end
 
     get '/elegirFecha2' do 
@@ -56,7 +71,9 @@ if Sinatra::Base.environment == :development
     get '/tablaGeneral' do 
         @arregloU = []
         User.find_each do |user|
-          @arregloU.push(user)
+          if !(user.name == "admin") 
+            @arregloU.push(user)
+          end
         end
         @arregloU = @arregloU.sort_by(&:total_score)
         @arregloU = @arregloU.reverse
@@ -80,6 +97,15 @@ if Sinatra::Base.environment == :development
     get '/optional' do 
           erb :optional
         end
+
+    get '/play_admin' do
+    user = User.find_by(id: session[:user_id])
+      if (user.name == "admin")
+      erb :play2
+    else
+      redirect '/play'
+    end
+    end
 
 
     # implement a login method
@@ -181,10 +207,10 @@ if Sinatra::Base.environment == :development
          user = User.find_by(id: session[:user_id])
          if(user.name=='admin')then
             match1 = Match.find_by(id: params['elige partido'])
-            forecast = Result.create(match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i)
+            Result.create(match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i)
             redirect '/play'     
          else   
- 	     redirect '/'
+ 	     redirect '/play'
          end
      end
     configure do
