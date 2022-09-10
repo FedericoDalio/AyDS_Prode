@@ -4,6 +4,7 @@ Actividad Nro 1:
 Herramientas utilizadas:
 https://www.pivotaltracker.com/
 Gantt Project: https://www.ganttproject.biz/
+Creacion de diagramas: https://app.genmymodel.com/
 
 Tareas pendientes:
 
