@@ -1,0 +1,77 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+    :root{
+      --celeste: #04f5ff;
+      --rojo: #e90052;
+      --blanco: #ffffff;
+      --verde: #00ff85;
+      --violeta: #38003c;
+      --degradado:linear-gradient(90deg, var(--blanco), var(--celeste));
+    }
+
+        *{
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+            }
+            body{
+        background: url(./img/fondo_play.jpg);
+        background-size: 100%;
+    }
+
+        .form-register {
+                width: 400px;
+                background: var(--violeta);
+                padding: 30px;
+                margin: auto;
+                margin-top: 100px;
+                border-radius: 4px;
+                color: white;
+                box-shadow: 7px 13px 37px #000;
+        }
+
+        .form-register h4 {
+            font-size: 22px;
+            margin-bottom: 20px;
+
+        }
+        select {
+	  appearance: none;
+	  background-color: var(--verde);
+	  border: none;
+	  padding: 0 1em 0 0;
+	  margin: 0;
+	  width: 100%;
+	  font-family: inherit;
+	  font-size: inherit;
+	  cursor: inherit;
+	  line-height: inherit;
+	}
+
+        .select {
+	  width: 100%;
+	  min-width: 15ch;
+	  max-width: 30ch;
+	  border: 1px solid var(--verde);
+	  border-radius: 0.25em;
+	  padding: 0.25em 0.5em;
+	  font-size: 1.25rem;
+	  cursor: pointer;
+	  line-height: 1.1;
+	  background-color: var(--verde);
+	  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+	}
+
+        .form-register .botons {
+            width: 100%;
+            background: var(--verde);
+            border: none;
+            padding: 12px;
+            color: white;
+            margin: 16px 0;
+            font-size: 16px;
+        }
