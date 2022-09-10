@@ -5,17 +5,34 @@ Especificación de Requerimientos de Software
 
 1. Introducción
 
+El propósito de este documento es presentar una descripción detallada del Sistema de Aplicación Web. Explicará el propósito y las características del sistema, las interfaces del sistema, lo que hará el sistema, las restricciones bajo las cuales debe operar y cómo reaccionará el sistema a los estímulos externos. Este documento está destinado tanto a las partes interesadas como a los desarrolladores del sistema y se propondrá a la Sociedad Histórica Regional para su aprobación.
+
 Éste documento detalla y define la arquitectura (diagramas), las especificaciones y la funcionalidad del sistema desarrollado. El propósito del sistema nombrado "Prode Premier League 2022/23", es  pronosticar los 19 partidos de cada fecha(38) de este torneo. En cada prode se identificara la fecha, el equipo local, el visitante y el resultado, el orden del resultado identificara al ganador si es que lo hay (local vs visitante). Cada usuario podrá hacer cada prode de cada partido de cada fecha, siempre y cuando este sea realizado como máximo 30 minutos antes de comenzar el partido. Al termino de cada fecha, se realizara la cuenta y acumulación de puntos de cada usuario para poder sumarlo a los puntos acumulados en la tabla general, serán otorgados 2 puntos en caso de haber acertado el ganador y 3 puntos adicionales si también fue acertado el resultado, esto se evaluara en cada partido, y ademas, un punto adicional al usuario que haya sumado mas puntos en la respectiva fecha(si son mas de uno, sera un punto para cada uno). Ademas la tabla general contara con una columna adicional que tendrá la acumulación de fechas ganadas de cada usuario. Cabe aclarar que el torneo cuenta con 20 equipos ingleses, con sus respectivos nombres. Cada equipo se enfrentara con los 19 equipos restantes dos veces, una de condición de local y otra de visitante. Los usuarios contaran con una contraseña para poder ingresar a la plataforma, donde tendrán su nombre y apellido, su apodo/alias y su email como datos personales. La plataforma misma, tendrá durante la semana anterior de dicha fecha, los partidos ya programados para que el usuario puede insertar sus resultados y guardarlos. Estos pueden ser modificados antes del tiempo que se solicita entregarlos aclarado anteriormente. Al finalizar el torneo, en caso de empate de puntos, el modo de desempate serán las fechas ganadas por cada usuario.
+
+
 
 
 1.1 Propósito
 
 Este documento de especificación de requisitos de software define la descripción detallada de las funciones de Prode Premier League con sus respectivas características y funcionales. Este documento esta pensando para el equipo de desarrollo y dichos puntos para el entendimiento de funcionalidad para el usuario.
 
+Este documento ofrece una visión general de la funcionalidad del producto. Describe los requisitos informales y se utiliza para establecer un contexto para la especificación de requisitos técnicos.
+
+En la sección de Especificación de requisitos de este documento, está destinado principalmente para los desarrolladores y describe en términos técnicos los detalles de la funcionalidad del producto.
+
+Ambas secciones del documento describen el mismo producto de software en su totalidad, pero están destinadas a diferentes audiencias y, por lo tanto, utilizan un lenguaje diferente.
+
 
 1.2 Alcance
 
-El producto final busca ser un aplicación en el cual el usuario se ve enfrentado a realizar diferentes predicciones de diferentes partidos, con la búsqueda de sumar puntos para la tabla anual.
+
+Este sistema de software será un sistema de aplicación web para un editor local de una sociedad total. Este sistema proporciona herramientas para ayudar a automatizar el proceso de apuestas y predicciones, que de otro modo tendría que realizarse manualmente. Al maximizar la eficiencia del trabajo, el sistema satisfará las necesidades del usuario sin dejar de ser fácil de entender y usar.
+
+Más específicamente, el producto final busca ser un aplicación en el cual el usuario se ve enfrentado a realizar diferentes predicciones de diferentes partidos, con la búsqueda de sumar puntos para la tabla anual.
+
+Este sistema está diseñado para permitir que un editor (admin) administre y modifique según sea necesario para publicar equipos, fechas, información interesante, etcétera. El software facilitará la comunicación entre los usuarios participantes, pudiendo ver la puntuación de los demás participantes en todo momento.
+
+El sistema también contiene una base de datos relacional que contiene una lista de usuarios, puntaje y artículos.
 
 
 1.3 Público dirigido y licencia del software
@@ -29,6 +46,13 @@ Este software no es libre, sin embargo, es gratuito, puede ser utilizado libreme
 .Escenario 2 : Ingresa el resultado con la cantidad de goles para el equipo local y para el visitante.
 .Escenario 3 : Se guardan los mismos, con la opción de modificarse 30 minutos antes de que comienza el partido.
 .Escenario 4 : Al finalizar el partido se compara el resultado ocurrido con la predicción y se designan los puntos correspondientes.
+
+
+1.5 Características del usuario
+
+Se espera que el usuario tenga conocimientos de Windows y que pueda usar botones, menús desplegables y herramientas similares.
+Se espera que el usuario tenga conocimientos de Internet y pueda usar un motor de búsqueda, el correo electrónico.
+
 
 
 2.0 Funciones del producto
@@ -48,6 +72,8 @@ En la parte de “pronosticar partido”, ademas de encontrar con todos los part
 .Ver acumulación de puntos
 Cuando el cliente quiere saber cuantos puntos lleva sumando en el campeonato y cuantas fechas tiene ganadas, se dirigía a la opción del menú principal de “tabla general” donde se encontraran todos los usuarios con sus respectivos puntajes y fechas ganadas y donde el mismo estará señalado con un color azul.
 
+.Musica de fondo. Background Music Sounds.
+Descripcion: La aplicacion tendra como musica de fondo un archivo file.mp3 que suene en el sitio, la misma se reproducira en todos los sectores de la aplicacion, de ser posible tendra una opcion para detener la reproduccion de la cancion si el usuario lo desea. Al terminar la reproduccion de la musica, se vuelve a reproducir la lista de una o mas canciones. Depende del sitio de la aplicacion es la cancion que estara reproduciendose.
 
 2.1 Requerimientos no funcionales
 En esta sección, se explicará en detalle los requisitos no funcionales. Los cuales se dividen en subsecciones de requisitos de usabilidad, confiabilidad, rendimiento y compatibilidad.
@@ -61,3 +87,7 @@ La aplicación se usará vía web en las PCs, necesita conexión a Internet para
 
 .Rendimiento
 La información que se maneja en este sistema no dificultará el manejo de datos y hará que sea eficiente a los usuarios.
+
+
+2.2 Interfaces de usuario
+La GUI de la aplicación proporciona menús, barras de herramientas, botones, paneles, contenedores, tablillas que permiten un fácil control mediante un teclado y un mouse.
