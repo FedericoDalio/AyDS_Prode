@@ -84,6 +84,10 @@ if Sinatra::Base.environment == :development
           erb:verPartidos
       end
 
+     get '/elegirEquipo' do
+          erb:elegirEquipo 
+     end
+	
      get '/perfilEquipo' do
           erb:perfilEquipo
       end

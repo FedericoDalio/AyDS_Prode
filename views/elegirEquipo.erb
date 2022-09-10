@@ -5,14 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-">
   <meta http-equiv="X-UA-Compatible" content="ie-edge">
   <link rel="stylesheet" href="./estilos5.css">
-  <title>Elegir fecha</title>
+  <title>Elegir equipo</title>
   </head>
     <body>
       <section class="form-register">
-  <form action="/elegirFecha" method="post">
-    <h4>Elegi la fecha</h4>
-      <input class="controls" type="number" min="1" max="38" name="date" placeholder="Date" />
-      <input class="botons" type="submit" name="button" value="Ver partidos" />
+  <form action="/perfilEquipo" method="post">
+    <h4>Elegi el equipo</h4>
+    <select name="Equipos" id="Team">
+    <option value="Manchester United">Manchester United</option>
+    <option value="Manchester City">Manchester City</option>
+    <option value="Aston Villa">Aston Villa</option>
+    <option value="Leeds United">Leeds United</option>
+    <option value="Chelsea">Chelsea</option>
+    <option value="Liverpool">Liverpool</option>
+    <option value="Tottenham">Tottenham</option>
+    <option value="Leicester City">Leicester City</option>
+    <option value="Brighton and Hove">Brighton and Hove</option>
+    <option value="Wolveshampton">Wolveshampton</option>
+    <option value="Newcastle">Newcastle</option>
+    <option value="Crystal Palace">Crystal Palace</option>
+    <option value="Brentford">Brentford</option>
+    <option value="Everton">Everton</option>
+    <option value="Fulham">Fulham</option>
+    <option value="Bournemouth">Bournemouth</option>
+    <option value="Nottingham Forest">Nottingham Forest</option>    
+</select>
+<input type="submit" value="Submit">
   </form>
       </section>
     </body>
