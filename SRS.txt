@@ -1,6 +1,14 @@
 PRODE PREMIER LEAGUE
 
 Especificación de Requerimientos de Software
+Versión 1.0
+Sistema de publicación web
+
+Miembros del equipo:
+Federico Dalio
+Matias Pellizzari
+
+Universidad Nacional de Rio Cuarto
 
 
 1. Introducción
@@ -35,9 +43,15 @@ Este sistema está diseñado para permitir que un editor (admin) administre y mo
 El sistema también contiene una base de datos relacional que contiene una lista de usuarios, puntaje y artículos.
 
 
+
+
 1.3 Público dirigido y licencia del software
 
-Este software no es libre, sin embargo, es gratuito, puede ser utilizado libremente con cualquier finalidad y está dirigido a todo público.
+Este software no es libre ya que cuyo código fuente no puede ser estudiado, modificado, y utilizado libremente con cualquier finalidad y redistribuido con cambios o mejoras sobre él. Sin embargo, es gratuito, puede ser utilizado en modo de usuario libremente con cualquier finalidad y está dirigido a todo público.
+
+1.3.1 La interfaz del sistema
+
+El sistema funciona en Google Chrome o Firefox. Los navegadores deben tener Windows, Linux o Mac como sistema operativo.
 
 
 1.4 Resumen del sistema
