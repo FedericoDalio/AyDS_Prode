@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_10_192709) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_221135) do
   create_table "forecasts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "match_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_10_192709) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
