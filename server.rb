@@ -174,16 +174,17 @@ if Sinatra::Base.environment == :development
      end
 
     post '/elegirEquipo' do
-      @arreglo = []
-      Team.where(name: request['name']).find_each do |match|
-      @arreglo.push(match)
-      end  
-      erb :perfilEquipo
-     end	
-
+       @arreglo = []
+       Team.where(name: request['nombre']).find_each do |match|
+       @arreglo.push(match)
+       end
+       erb :perfilEquipo
+    end
+    
     post '/perfilEquipo' do
       erb :perfilEquipo
      end
+     
      post '/verPartidos' do
       @arreglo = []
       @arreglo2 = []

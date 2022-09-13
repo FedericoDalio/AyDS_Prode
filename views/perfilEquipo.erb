@@ -1,28 +1,22 @@
 <div class="container">
    <title>Team Profile</title>
    <link rel="stylesheet" href="./perfil.css">
-   <h1>//Nombre del Equipo//</h1>
-   <h3>//Ciudad del Equipo//</h3>
-   <a href="https://imgbb.com/"><img src="https://i.ibb.co/pdJfzx9/profile-picture.jpg" alt="profile-picture" border="0" /></a>
-   <h4>Descripcion</h4>
-   <p>//Descripcion del equipo</p>
+    <% @arreglo.each do |user| %>
+   <h1>Nombre del Equipo</h1>
+      <span class="name"><%= user.name%></span>
+   <h3>Ciudad del Equipo</h3>
+      <span class="city"><%= user.city%></span>
+   <h4>Descripcion</h4> 
+      <span class="name"><%= user.description%></span>
    <h4>Titulos</h4>
    <div class="listFlex">
       <div>
          <ul>
-            <li>Titulo 1</li>
-            <li>Titulo 2</li>
-            <li>Titulo 3</li>
-         </ul>
-      </div>
-      <div>
-         <ul>
-            <li>Titulo 4</li>
-            <li>Titulo 5</li>
-            <li>Titulo 6</li>
+        <span class="titles"><%= user.trophies%></span>
          </ul>
       </div>
    </div>
-   <h4>//Botones para volver</h4>
+   <% end %>
+   <h4>Botones para volver</h4>
    Catch me on Twitter - <a href="https://twitter.com/DanEnglishby">@DanEnglishby</a>
 </div>
