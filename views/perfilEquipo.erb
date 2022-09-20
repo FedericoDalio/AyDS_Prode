@@ -2,8 +2,14 @@
    <title>Team Profile</title>
    <link rel="stylesheet" href="./perfil.css">
     <% @arreglo.each do |user| %>
+
    <h1>Nombre del Equipo</h1>
       <span class="name"><%= user.name%></span>
+   <h2> Escudo del Equipo </h2>
+   <a href="https://www.premierleague.com/">
+         <img alt="Shield" src=<%= user.linkContent%>
+         width=250" height="200">
+      </a>
    <h3>Ciudad del Equipo</h3>
       <span class="city"><%= user.city%></span>
    <h4>Descripcion</h4> 
