@@ -36,9 +36,9 @@ Descripcion: Esta funcionalidad incorpora un aparartado para ver el perfil de ca
 
 Estadisticas de partidos jugados. El usuario podra visualizar las estadisticas de cada equipo al momento de realizar una prediccion, teniendo de esta manera, mas informacion y poder realizar una prediccion segura a su punto de vista. Las estadisticas visualizaran los partidos ganados y los partidos perdidos de los participantes del partido.
 
-Manual de instrucciones:
+Manual de instrucciones:.
 
-Reestablecer contraseña:
+Reestablecer contraseña:.
 
 Apostar por dinero ficticio. (Atributo agregado a usuario siempre no negativo, este atributo es privado respecto a cada usuario)
 
