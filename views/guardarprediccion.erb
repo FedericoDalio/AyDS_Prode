@@ -13,7 +13,9 @@
 </audio>
       <section class="form-register">
   <form action="/guardarPrediccion" method="post">
+
     <h4>Haz tu prediccion!</h4>
+
   <select class="controls "name="elige partido">
    <% @arreglo && @arreglo.each do |partido| %>
   <option value="<%= partido.id %>"><%= partido.local.name %> vs. <%= partido.visitor.name %></option> 
@@ -26,30 +28,3 @@
       </section>
     </body>
   </html>
-
-<style>
-thead { background-color:#EB3CFF }
-tbody { background-color:#ED94FF }
-tfoot { background-color:#ED94FF }
-</style>
-
-<table>
-  <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
-  <!-- (A) HEAD SECTION -->
-  <thead>
-    <tr> <th>Comparativa</th> <th>Equipo 1</th> <th>Equipo 2</th> </tr>
-  </thead>
- 
-  <!-- (B) BODY SECTION -->
-  <tbody>
-    <tr> <td>Partidos jugados</td> <td>Num 1</td> <td>Num 2</td> </tr>
-    <tr> <td>Victorias</td> <td>Num 3</td> <td>Num 4</td> </tr>
-  </tbody>
- 
-  <!-- (C) FOOT SECTION -->
-  <tfoot>
-    <tr> <td>Empates</td> <td>Num 5</td> <td>Num 6</td> </tr>
-    <tr> <td>Perdidas</td> <td>Num 7</td> <td>Num 8</td> </tr>
-    <tr> <td>Winrate</td> <td>Num 9</td> <td>Num 10</td> </tr>
-  </tfoot>
-</table>

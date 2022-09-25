@@ -14,6 +14,81 @@
       <span class="city"><%= user.city%></span>
    <h4>Descripcion</h4> 
       <span class="name"><%= user.description%></span>
+
+<h4>Estadisticas</h4>
+
+<%
+@arregloEquipo = []
+@arregloEquipo2 = []
+@partidosJugados.each do |result|
+   if ( (result.match.local_id or result.match.visitor_id) == user.id)
+      @arregloEquipo.push(result)
+   end
+end
+
+jugados = 0
+victorias = 0
+empates = 0
+derrotas = 0
+winrate = 0
+
+@arregloEquipo.each do |aux|
+   jugados = jugados + 1
+   if (aux.match.local_id == user.id)
+      if(aux.local > aux.visitor)
+         victorias = victorias + 1
+      else
+         if(aux.local == aux.visitor)
+            empates = empates + 1
+         else   
+            derrotas = derrotas + 1
+         end
+      end   
+   else
+      if(aux.visitor > aux.local)
+         victorias = victorias + 1
+      else
+         if(aux.visitor == aux.local)
+            empates = empates + 1
+         else   
+            derrotas = derrotas + 1
+         end
+      end         
+   end   
+end
+
+winrate = (victorias/jugados)*100
+
+%>
+   
+<style>
+thead { background-color:#EB3CFF }
+tbody { background-color:#ED94FF }
+tfoot { background-color:#ED94FF }
+</style>
+
+<table>
+  <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+  <!-- (A) HEAD SECTION -->
+  <thead>
+    <tr> <th>Comparativa</th> <th><%= user.name%></th> </tr>
+  </thead>
+ 
+  <!-- (B) BODY SECTION -->
+  <tbody>
+    <tr> <td>Partidos jugados</td> <td><%=jugados%></td> </tr>
+    <tr> <td>Victorias</td> <td><%=victorias%></td> </tr>
+  </tbody>
+ 
+  <!-- (C) FOOT SECTION -->
+  <tfoot>
+    <tr> <td>Empates</td> <td><%=empates%></td> </tr>
+    <tr> <td>Derrotas</td> <td><%=derrotas%></td> </tr>
+    <tr> <td>Winrate</td> <td><%=winrate%>%</td>  </tr>
+  </tfoot>
+</table>
+
+
    <h4>Titulos</h4>
    <div class="listFlex">
       <div>

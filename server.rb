@@ -178,6 +178,11 @@ if Sinatra::Base.environment == :development
        Team.where(name: request['nombre']).find_each do |match|
        @arreglo.push(match)
        end
+       @partidosJugados = []
+       Result.find_each do |resultado|
+          @partidosJugados.push(resultado)
+       end
+
        erb :perfilEquipo
     end
     
@@ -215,6 +220,7 @@ if Sinatra::Base.environment == :development
    
 
      post '/guardarPrediccion' do
+
       user = User.find_by(id: session[:user_id])
       match1 = Match.find_by(id: params['elige partido']) 
       forecast = Forecast.create(user:user ,match:match1, local:request['gol local'].to_i, visitor:request['gol visitante'].to_i, score: 0)
