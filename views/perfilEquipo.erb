@@ -1,3 +1,8 @@
+
+<head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="./estilos5.css">
+</head>
 <div class="container">
    <title>Team Profile</title>
    <link rel="stylesheet" href="./perfil.css">
@@ -21,16 +26,16 @@
 @arregloEquipo = []
 @arregloEquipo2 = []
 @partidosJugados.each do |result|
-   if ( (result.match.local_id or result.match.visitor_id) == user.id)
+   if ( (result.match.local_id == user.id) or ( result.match.visitor_id == user.id) )
       @arregloEquipo.push(result)
    end
 end
 
-jugados = 0
-victorias = 0
-empates = 0
-derrotas = 0
-winrate = 0
+jugados = 0.0
+victorias = 0.0
+empates = 0.0
+derrotas = 0.0
+winrate = 0.0
 
 @arregloEquipo.each do |aux|
    jugados = jugados + 1
@@ -54,12 +59,11 @@ winrate = 0
             derrotas = derrotas + 1
          end
       end         
-   end   
+   end
+
 end
-
-winrate = (victorias/jugados)*100
-
 %>
+<%winrate = (victorias/jugados)*100%>
    
 <style>
 thead { background-color:#EB3CFF }
@@ -76,15 +80,16 @@ tfoot { background-color:#ED94FF }
  
   <!-- (B) BODY SECTION -->
   <tbody>
-    <tr> <td>Partidos jugados</td> <td><%=jugados%></td> </tr>
-    <tr> <td>Victorias</td> <td><%=victorias%></td> </tr>
+    <tr> <td>Partidos jugados</td> <td><%=jugados.to_int%></td> </tr>
+    <tr> <td>Victorias</td> <td><%=victorias.to_int%></td> </tr>
   </tbody>
  
   <!-- (C) FOOT SECTION -->
   <tfoot>
-    <tr> <td>Empates</td> <td><%=empates%></td> </tr>
-    <tr> <td>Derrotas</td> <td><%=derrotas%></td> </tr>
-    <tr> <td>Winrate</td> <td><%=winrate%>%</td>  </tr>
+    <tr> <td>Empates</td> <td><%=empates.to_int%></td> </tr>
+    <tr> <td>Derrotas</td> <td><%=derrotas.to_int%></td> </tr>
+
+    <tr> <td>Winrate</td> <td><%=winrate.to_int%>%</td>  </tr>
   </tfoot>
 </table>
 
