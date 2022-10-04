@@ -6,7 +6,7 @@ ENV['APP_ENV'] ||= 'test'
 
 ActiveRecord::Base.logger.level = 1
 
-require File.expand_path('../../config/environment.rb', __FILE__)
+require File.expand_path('../config/environment.rb', __dir__)
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
