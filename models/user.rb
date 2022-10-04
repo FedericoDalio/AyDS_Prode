@@ -1,5 +1,5 @@
 require 'bcrypt'
-
+# Esta clase crea la tabla User en la base de datos, incluyendo una contrasenia y la creacion de la misma.
 class User < ActiveRecord::Base
   include BCrypt
   def password

@@ -14,3 +14,5 @@ Style/FrozenStringLiteralComment:
 AllCops:
   Exclude:
     - 'db/**/*'
+    - 'config/**/*'
+    - 'seedsO.rb'
