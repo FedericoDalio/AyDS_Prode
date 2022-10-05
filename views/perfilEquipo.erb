@@ -23,11 +23,11 @@
 <h4>Estadisticas</h4>
 
 <%
-@arregloEquipo = []
-@arregloEquipo2 = []
-@partidosJugados.each do |result|
+@arreglo_equipo = []
+@arreglo_equipo2 = []
+@partidos_jugados.each do |result|
    if ( (result.match.local_id == user.id) or ( result.match.visitor_id == user.id) )
-      @arregloEquipo.push(result)
+      @arreglo_equipo.push(result)
    end
 end
 
@@ -37,7 +37,7 @@ empates = 0.0
 derrotas = 0.0
 winrate = 0.0
 
-@arregloEquipo.each do |aux|
+@arreglo_equipo.each do |aux|
    jugados = jugados + 1
    if (aux.match.local_id == user.id)
       if(aux.local > aux.visitor)

@@ -7,6 +7,7 @@ require_relative './models/result'
 # #require_relative './models/user'
 
 if Sinatra::Base.environment == :development
+  # Configuration server.
   class App < Sinatra::Application
     configure :development do
       register Sinatra::Reloader
@@ -44,7 +45,7 @@ if Sinatra::Base.environment == :development
 
     get '/play' do
       user = User.find_by(id: session[:user_id])
-      if !(user.name == 'admin')
+      if user.name != 'admin'
         erb :play
       else
         redirect '/play_admin'
@@ -57,7 +58,7 @@ if Sinatra::Base.environment == :development
 
     get '/elegirFecha' do
       user = User.find_by(id: session[:user_id])
-      if !(user.name == 'admin')
+      if user.name != 'admin'
         erb :elegirFecha
       else
         redirect '/play_admin'
@@ -69,12 +70,12 @@ if Sinatra::Base.environment == :development
     end
 
     get '/tablaGeneral' do
-      @arregloU = []
+      @arreglo_u = []
       User.find_each do |user|
-        @arregloU.push(user) unless user.name == 'admin'
+        @arreglo_u.push(user) unless user.name == 'admin'
       end
-      @arregloU = @arregloU.sort_by(&:total_score)
-      @arregloU = @arregloU.reverse
+      @arreglo_u = @arreglo_u.sort_by(&:total_score)
+      @arreglo_u = @arreglo_u.reverse
       erb :tablaGeneral
     end
 
@@ -137,29 +138,29 @@ if Sinatra::Base.environment == :development
     post '/elegirFecha' do
       user = User.find_by(id: session[:user_id])
       @arreglo = []
-      partidosJugados = []
+      partidos_jugados = []
       predicciones = []
       Result.find_each do |resultado|
-        partidosJugados.push(resultado.match)
+        partidos_jugados.push(resultado.match)
       end
       Forecast.where(user: user).find_each do |f|
         part = f.match
         predicciones.push(part)
       end
       Match.where(date: request['date']).find_each do |match|
-        @arreglo.push(match) if !partidosJugados.include?(match) && !predicciones.include?(match)
+        @arreglo.push(match) if !partidos_jugados.include?(match) && !predicciones.include?(match)
       end
       erb :guardarprediccion
     end
 
     post '/elegirFecha2' do
       @arreglo = []
-      partidosJugados = []
+      partidos_jugados = []
       Result.find_each do |resultado|
-        partidosJugados.push(resultado.match)
+        partidos_jugados.push(resultado.match)
       end
       Match.where(date: request['date']).find_each do |match|
-        @arreglo.push(match) unless partidosJugados.include?(match)
+        @arreglo.push(match) unless partidos_jugados.include?(match)
       end
       erb :CargarResultados
     end
@@ -169,9 +170,9 @@ if Sinatra::Base.environment == :development
       Team.where(name: request['nombre']).find_each do |match|
         @arreglo.push(match)
       end
-      @partidosJugados = []
+      @partidos_jugados = []
       Result.find_each do |resultado|
-        @partidosJugados.push(resultado)
+        @partidos_jugados.push(resultado)
       end
 
       erb :perfilEquipo
@@ -222,10 +223,8 @@ if Sinatra::Base.environment == :development
       if user.name == 'admin'
         match1 = Match.find_by(id: params['elige partido'])
         Result.create(match: match1, local: request['gol local'].to_i, visitor: request['gol visitante'].to_i)
-        redirect '/play'
-      else
-        redirect '/play'
       end
+      redirect '/play'
     end
     configure do
       set :sessions, true
