@@ -234,7 +234,7 @@ if Sinatra::Base.environment == :development
     end
 
     before do
-      if session[:user_id] && session[:user_id]
+      if session[:user_id]
         @current_user = User.find_by(id: session[:user_id])
       else
         public_pages = ['/', '/login', '/signup']
