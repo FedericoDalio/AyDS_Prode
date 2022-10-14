@@ -11,6 +11,70 @@
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Metrics/LineLength:
+  Max: 150
+
+Metrics/AbcSize:
+  AllowedMethods: []
+  AllowedPatterns: []
+  IgnoredMethods: []
+  CountRepeatedAttributes: true
+  Max: 40
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 25
+  CountAsOne: []
+  ExcludedMethods: []
+  AllowedMethods: refine
+  AllowedPatterns: []
+  IgnoredMethods: []
+
+Metrics/BlockNesting:
+  CountBlocks: false
+  Max: 3
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 200
+  CountAsOne: []
+
+Metrics/CyclomaticComplexity:
+  AllowedMethods: []
+  AllowedPatterns: []
+  IgnoredMethods: []
+  Max: 7
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 20
+  CountAsOne: []
+  ExcludedMethods: []
+  AllowedMethods: []
+  AllowedPatterns: []
+  IgnoredMethods: []
+
+Metrics/ModuleLength:
+  CountComments: false
+  Max: 100
+  CountAsOne: []
+
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+  MaxOptionalParameters: 3
+
+Metrics/PerceivedComplexity:
+  AllowedMethods: []
+  AllowedPatterns: []
+  IgnoredMethods: []
+  Max: 8
+
+
+
+
+
+
 AllCops:
   Exclude:
     - 'db/**/*'
