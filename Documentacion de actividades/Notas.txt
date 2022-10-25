@@ -1,0 +1,69 @@
+Taller IS 2022
+Actividad Nro 1:
+
+Herramientas utilizadas:
+https://www.pivotaltracker.com/
+Gantt Project: https://www.ganttproject.biz/
+Creacion de diagramas: https://app.genmymodel.com/
+
+Tareas pendientes:
+
+Tarea: Perfil de equipo. Team profile.
+Descripcion: Esta funcionalidad incorpora un aparartado para ver el perfil de cada equipo. Se podra seleccionar el equipo para ver su informacion. Info: Escudo(png), Nombre, Estadio-Ciudad, DT.
+
+Tarea: Musica de fondo. Background Music Sounds.
+Descripcion: La aplicacion tendra como musica de fondo un archivo file.mp3 que suene en el sitio, la misma se reproducira en todos los sectores de la aplicacion, de ser posible tendra una opcion para detener la reproduccion de la cancion si el usuario lo desea. Al terminar la reproduccion de la musica, se vuelve a reproducir la lista de una o mas canciones. Depende del sitio de la aplicacion es la cancion que estara reproduciendose.
+
+Tarea: Escudos de equipos.Team Shield Image.
+Descripcion: Los equipos cargados en la aplicacion contaran con una imagen de su escudo de la forma "file.png" que represente al equipo. El archivo con la extension .png cuenta con la ventaja de no tener fondo, es por esto que es necesario que sea de esta extension. La imagen se podra ver en el apartado de perfil de equipo.
+
+
+Tarea: Actualizar diagrama de clases, SRS, crear diagrama de Gantt, crear, linkear y actualizar. pivotaltracker junto con github. Este archivo de guia subirlo.
+Descripcion: Luego de implementar nuevas funciones.
+
+
+
+
+Tareas/funcionalidades deseadas:
+
+Tarea: Correr/implementar testing. Run Testing.
+Descripcion: Archivos, controlar resultados. Probar con valores negativos y posibles valores que generen errores. Encontrar posibles errores.
+
+Tabla de equipos.(pts, ganados,perdidos,empatados, escudo)
+
+Perfil de usuario.(Datos personales, Foto, puntaje, racha, Info adicional, puntaje record basado en temporada actual o anterior)
+Descripcion: Esta funcionalidad incorpora un aparartado para ver el perfil de cada usuario. (Datos personales, Foto, puntaje, racha, Info adicional, puntaje record basado en temporada actual o anterior)
+
+Estadisticas de partidos jugados. El usuario podra visualizar las estadisticas de cada equipo al momento de realizar una prediccion, teniendo de esta manera, mas informacion y poder realizar una prediccion segura a su punto de vista. Las estadisticas visualizaran los partidos ganados y los partidos perdidos de los participantes del partido.
+
+Manual de instrucciones:..
+
+Reestablecer contraseña:..
+
+Apostar por dinero ficticio. (Atributo agregado a usuario siempre no negativo, este atributo es privado respecto a cada usuario)
+
+**************************************
+
+Dependencias:
+Tabla de equipos y Perfil de equipo depende de que la tarea Escudos de equipos este completada.
+
+**************************************
+
+ScrumMaster: Federico Dalio.
+
+Reunion de planificacion del Sprint: Martes 30 de agosto.
+
+Tareas realizadas al martes 06 de septiembre:
+Se realizo la descripcion de tareas a realizar, su descripcion y sus dependencias a las demas funcionalidades.
+Se genero un diagrama de Gantt con las tareas a realizar, su tiempo estimado y los recursos utilizados.
+Se investigo acerca de las tareas pendientes, si es necesario investigar o se estima que ya se sabe la forma de su implementacion. Se investigo hacerca de como añadir la funcionalidad de musica en el la aplicacion web.
+
+**************************************
+
+ScrumMaster: Matias Pellizzari.
+
+Reunion de planificacion del Sprint: Martes 06 de septiembre.
+
+**************************************
+
+Resto de avances se muestran en Gantt y pivotaltracker
