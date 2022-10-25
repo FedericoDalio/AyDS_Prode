@@ -35,3 +35,10 @@ En los archivos server.rb, views/perfilEquipo.erb, views/tablaGeneral.erb, se im
 [#183455050] More offenses fixed part II v2 
 
 En el archivo server.rb se realizo un cambio logico equivalente que es mas legible.
+
+
+
+
+
+
+
