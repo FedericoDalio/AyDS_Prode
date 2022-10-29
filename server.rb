@@ -25,6 +25,11 @@ if Sinatra::Base.environment == :development
     get '/' do
       erb :inicio
     end
+ 
+    get '/cambiarContrasenia' do
+      erb :cambiarContrasenia
+    end
+
 
     get '/cargarResultados' do
       user = User.find_by(id: session[:user_id])
@@ -182,6 +187,16 @@ if Sinatra::Base.environment == :development
       erb :perfilEquipo
     end
 
+    post '/cambiarContrasenia' do
+      user = User.find_by(name: request['username'])
+      if(user && (request['password'] == request['passwordconfirm']))
+        user.password_digest = request['passwordconfirm']
+        redirect '/login'
+      else
+        redirect '/signup'
+      end
+    end
+   
     post '/verPartidos' do
       @arreglo = []
       @arreglo2 = []
