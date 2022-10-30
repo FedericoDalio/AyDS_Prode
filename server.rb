@@ -188,9 +188,13 @@ if Sinatra::Base.environment == :development
     end
 
     post '/cambiarContrasenia' do
-      user = User.find_by(name: request['username'])
-      if(user && (request['password'] == request['passwordconfirm']))
-        user.password_digest = request['passwordconfirm']
+      gambler = User.find_by(name: request['username'])
+      json = request.params
+      logger.info json
+      logger.info gambler
+      if(gambler && (request['password'] == request['passwordconfirm']))
+        gambler.password = (json['passwordconfirm'])
+        gambler.save
         redirect '/login'
       else
         redirect '/signup'
