@@ -189,10 +189,10 @@ if Sinatra::Base.environment == :development
 
     post '/cambiarContrasenia' do
       gambler = User.find_by(name: request['username'])
-      json = request.params
-      logger.info json
+      json = request.params 
+      logger.info json 
       logger.info gambler
-      if(gambler && (request['password'] == request['passwordconfirm']))
+      if(gambler && (request['password'] == request['passwordconfirm'])) #Confirma que las contraseñas sean iguales
         gambler.password = (json['passwordconfirm']) #Cambio de valor
         gambler.save  #Guardado de valor nuevo
         redirect '/login'
