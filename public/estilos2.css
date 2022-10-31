@@ -37,8 +37,8 @@
     header{
         position: relative;
         top: 0;
-        left: 0;
-        width: 100%;
+        left: 1;
+        width: 108%;
         background-color: var(--blanco);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
         padding: 2rem 9%;
