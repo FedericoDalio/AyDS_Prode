@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!--
+      <title>Mi perfil</title>
+      -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         .header {
+            text-align: center;
+            height: 300px;
+            padding: 12px;
+            background-image: url("https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/w-qjCHPZbeXCQ-unsplash.jpg");
+         }
+         .body {
+            background: linear-gradient(to right, #ff9472, #f2709c);
+         }
+         .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+         }
+         .user-name {
+            font-size: 18px;
+            margin-top: 14px;
+         }
+         .socials {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+         }
+         .socials li{
+            display: inline-block;
+            margin: 5px;
+         }
+         .subtitle {
+            text-align: center;
+            font-size: 18px;
+         }
+         a {
+            text-decoration : none;
+            color: #ad0000;
+         }
+         a:hover{
+            color: #dd1919;
+         }
+         .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background-size: cover;
+         }
+         .email {
+            background-image : url("https://cdn-icons-png.flaticon.com/512/6788/6788206.png");
+         }
+         .facebook {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/733/733547.png");
+         }
+         .twitter {
+         background-image: url("https://cdn-icons-png.flaticon.com/512/733/733579.png");
+         }
+         .about {
+            padding: 10px;
+         }
+         .about h3 {
+            color: #545454;
+            font-size: 16px;
+         }
+         .about p {
+            color: #545454;
+            font-size: 14px;
+         }
+         .about a {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            margin: 5px;
+         }
+      </style>
+   </head>
+   <%= user = User.find_by(id: session[:user_id]) %>
+   <body class="body">
+      <Body
+      background="/AyDS_Prode/public/img/fondo_perfil.jpg">
+      <div class="header">
+         <!--
+         <div class="container">         
+         <link rel="stylesheet" href="./perfil.css">
+         -->
+         <img 
+         class="avatar"
+         src="https://www.emmegi.co.uk/wp-content/uploads/2019/01/User-Icon.jpg" />
+         <h1 class="user-name">Nombre de usuario: <%= user.name %></h1>
+         <h1 class="user-name">Puntuacion total: <%= user.total_score %></h1>
+      </div>
+      <h1 class="subtitle">Contáctame:</h1>
+      <ul class="socials">
+         <li>
+            <i class ="icon email"></i>
+            <a href="mailto:fede.dalio1@gmail.com">Correo</a>
+         </li>
+         <li>
+            <i class ="icon facebook"></i>
+            <a href="https://facebook.com/federico.dalio.94">Facebook</a>
+         </l1>
+         <li>
+            <i class ="icon twitter"></i>
+            <a href="https://twitter.com/@fede_dalio ">Twitter</a>
+         </li>
+      </ul>
+      <div class="about">
+         <h3>Acerca de</h3>
+         <p>
+         Técnico superior en desarrollo de aplicaciones y plataformas con amplios conocimientos en back-end, desarrollados a través de proyectos propios. Busco desarrollar mi carrera, ayudando a TechSoft Solutions, contribuyendo con mis habilidades en C#, ASP.NET y Azure para lograr diseños finales que satisfagan las necesidades y preferencias de los clientes.
+         </p>
+         <h3>Opciones:</h4>
+         <a href="/play">Volver a play!</a>
+      </div>
+   </body>
+</html>
+
+
+

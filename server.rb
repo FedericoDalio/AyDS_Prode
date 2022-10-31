@@ -91,6 +91,10 @@ if Sinatra::Base.environment == :development
       erb :perfilEquipo
     end
 
+    get '/miPerfil' do
+      erb :miPerfil
+    end
+
     get '/cierredeSesion' do
       session.delete(:user_id)
       @current_user = nil
@@ -181,6 +185,18 @@ if Sinatra::Base.environment == :development
     post '/perfilEquipo' do
       erb :perfilEquipo
     end
+
+    post '/miPerfil' do
+      #@current_user = []    
+      #User.find_by(id: session[:user_id]).find_each do |user|       
+        #@current_user.push(user)
+      #end
+      @arreglo_u = []
+      @arreglo_u.push(session[:user_id])
+      @arreglo_u.push(session[:user_name])
+      erb :miPerfil
+    end
+    
 
     post '/verPartidos' do
       @arreglo = []
