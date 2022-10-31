@@ -193,8 +193,8 @@ if Sinatra::Base.environment == :development
       logger.info json
       logger.info gambler
       if(gambler && (request['password'] == request['passwordconfirm']))
-        gambler.password = (json['passwordconfirm'])
-        gambler.save
+        gambler.password = (json['passwordconfirm']) #Cambio de valor
+        gambler.save  #Guardado de valor nuevo
         redirect '/login'
       else
         redirect '/signup'
