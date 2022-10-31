@@ -5,15 +5,23 @@
       <title>Mi perfil</title>
       -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
+
       <style>
          .header {
             text-align: center;
             height: 300px;
             padding: 12px;
+            /*
             background-image: url("https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/w-qjCHPZbeXCQ-unsplash.jpg");
+            */
          }
          .body {
+            /*
             background: linear-gradient(to right, #ff9472, #f2709c);
+            */
+            background: url(./img/fondo_pred.jpg);
+            background-size: 100%;
+
          }
          .avatar {
             width: 200px;
@@ -23,6 +31,7 @@
          .user-name {
             font-size: 18px;
             margin-top: 14px;
+            color: #FFFFFF;
          }
          .socials {
             list-style: none;
@@ -36,13 +45,21 @@
          .subtitle {
             text-align: center;
             font-size: 18px;
+            color: #FFFFFF;
          }
          a {
             text-decoration : none;
+            /*
             color: #ad0000;
+            */
+            color: #FFFFFF;
          }
          a:hover{
+            
             color: #dd1919;
+            /*
+            color: #FFFFFF;
+            */
          }
          .icon {
             width: 16px;
@@ -60,7 +77,22 @@
          background-image: url("https://cdn-icons-png.flaticon.com/512/733/733579.png");
          }
          .about {
+            background-color: #FB5BEE;
+
+            position: relative;
+            width: 450px;
+            margin: 100px auto 0;
             padding: 10px;
+            box-sizing: border-box;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);
+            border-radius: 5px;
+            overflow: hidden;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align:center
+
          }
          .about h3 {
             color: #545454;
@@ -109,7 +141,7 @@
          </li>
       </ul>
       <div class="about">
-         <h3>Acerca de</h3>
+         <h3>Acerca de mi</h3>
          <p>
          Técnico superior en desarrollo de aplicaciones y plataformas con amplios conocimientos en back-end, desarrollados a través de proyectos propios. Busco desarrollar mi carrera, ayudando a TechSoft Solutions, contribuyendo con mis habilidades en C#, ASP.NET y Azure para lograr diseños finales que satisfagan las necesidades y preferencias de los clientes.
          </p>
