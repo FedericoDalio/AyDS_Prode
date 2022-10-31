@@ -187,13 +187,6 @@ if Sinatra::Base.environment == :development
     end
 
     post '/miPerfil' do
-      #@current_user = []    
-      #User.find_by(id: session[:user_id]).find_each do |user|       
-        #@current_user.push(user)
-      #end
-      @arreglo_u = []
-      @arreglo_u.push(session[:user_id])
-      @arreglo_u.push(session[:user_name])
       erb :miPerfil
     end
     
