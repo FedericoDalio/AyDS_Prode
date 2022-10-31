@@ -96,6 +96,10 @@ if Sinatra::Base.environment == :development
       erb :perfilEquipo
     end
 
+    get '/miPerfil' do
+      erb :miPerfil
+    end
+
     get '/cierredeSesion' do
       session.delete(:user_id)
       @current_user = nil
@@ -187,6 +191,11 @@ if Sinatra::Base.environment == :development
       erb :perfilEquipo
     end
 
+
+    post '/miPerfil' do
+      erb :miPerfil
+    end
+    
     post '/cambiarContrasenia' do
       gambler = User.find_by(name: request['username'])
       json = request.params 
