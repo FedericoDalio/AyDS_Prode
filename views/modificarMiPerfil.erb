@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!--
-      <title>Mi perfil</title>
-      -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
       <style>
          .header {
             text-align: center;
             height: 300px;
             padding: 12px;
-            /*
-            background-image: url("https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/w-qjCHPZbeXCQ-unsplash.jpg");
-            */
          }
          .body {
-            /*
-            background: linear-gradient(to right, #ff9472, #f2709c);
-            */
             background: url(./img/fondo_pred.jpg);
             background-size: 100%;
-
          }
          .avatar {
             width: 200px;
@@ -49,17 +38,10 @@
          }
          a {
             text-decoration : none;
-            /*
-            color: #ad0000;
-            */
             color: #FFFFFF;
          }
-         a:hover{
-            
+         a:hover{           
             color: #dd1919;
-            /*
-            color: #FFFFFF;
-            */
          }
          .icon {
             width: 16px;
@@ -129,30 +111,27 @@
       <ul class="socials">
          <li>
             <i class ="icon email"></i>
-            <a href=<%= user.email %>>Correo</a>
-            <!--
-               "mailto:fede.dalio1@gmail.com"
-               "https://facebook.com/federico.dalio.94"
-               "https://twitter.com/@fede_dalio"
-            -->
+            <input type="text" name="Correo" class="form-control" placeholder="Correo" value="">
          </li>
+      </ul>
+      <ul class="socials">
          <li>
             <i class ="icon facebook"></i>
-            <a href=<%= user.facebook %>>Facebook</a>
+            <input type="text" name="Facebook" class="form-control" placeholder="Facebook" value="">
          </l1>
+      </ul>
+      <ul class="socials">
          <li>
             <i class ="icon twitter"></i>
-            <a href=<%= user.twitter %>>Twitter</a>
+            <input type="text" name="Twitter" class="form-control" placeholder="Twitter" value="">
          </li>
       </ul>
       <div class="about">
          <h3>Acerca de mi</h3>
-         <p>
-         <%= user.description %>
-         </p>
+         <input type="text" name="Acerca de mi" class="form-control" placeholder="Acerca de mi" value="">
          <h3>Opciones:</h4>
          <a href="/play">Volver a play!</a>
-         <a href="/modificarMiPerfil">Modificar Mi Perfil</a>
+         <a href="/miPerfil">Terminar de modificar</a>
       </div>
    </body>
 </html>

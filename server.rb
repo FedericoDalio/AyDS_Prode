@@ -123,6 +123,10 @@ if Sinatra::Base.environment == :development
       end
     end
 
+    get '/modificarMiPerfil' do
+      erb :modificarMiPerfil
+    end
+
     # implement a login method
 
     post '/login' do
@@ -195,6 +199,11 @@ if Sinatra::Base.environment == :development
     post '/miPerfil' do
       erb :miPerfil
     end
+
+    post '/modificarMiPerfil' do
+      erb :modificarMiPerfil
+    end
+    
     
     post '/cambiarContrasenia' do
       gambler = User.find_by(name: request['username'])
