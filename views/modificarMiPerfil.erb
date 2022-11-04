@@ -36,6 +36,11 @@
             font-size: 18px;
             color: #FFFFFF;
          }
+         .change-avatar {
+            text-align: center;
+            font-size: 14px;
+            color: #FFFFFF;
+         }         
          a {
             text-decoration : none;
             color: #FFFFFF;
@@ -74,7 +79,6 @@
             justify-content: center;
             align-items: center;
             text-align:center
-
          }
          .about h3 {
             color: #545454;
@@ -87,13 +91,16 @@
          .about a {
             list-style: none;
             padding: 0;
-            display: inline-block;
-            margin: 5px;
+            display: block !important;
+            /*display: inline-block;*/
+            margin: 10px;
          }
+         .
       </style>
    </head>
    <%= user = User.find_by(id: session[:user_id]) %>
    <body class="body">
+
       <Body
       background="/AyDS_Prode/public/img/fondo_perfil.jpg">
       <div class="header">
@@ -104,37 +111,91 @@
          <img 
          class="avatar"
          src="https://www.emmegi.co.uk/wp-content/uploads/2019/01/User-Icon.jpg" />
+
+<!-- CAMBIO DE AVATAR
+         <div class="change-avatar">
+            <label for="exampleInputFile">Cambiar mi avatar:</label>
+         </div>
+         <div class="change-avatar">
+            <input type="file" name="avatar" >
+         </div>
+-->
+
+
          <h1 class="user-name">Nombre de usuario: <%= user.name %></h1>
          <h1 class="user-name">Puntuacion total: <%= user.total_score %></h1>
+
+         
+         
       </div>
-      <h1 class="subtitle">Contáctame:</h1>
-      <ul class="socials">
-         <li>
-            <i class ="icon email"></i>
-            <input type="text" name="Correo" class="form-control" placeholder="Correo" value="">
-         </li>
-      </ul>
-      <ul class="socials">
-         <li>
-            <i class ="icon facebook"></i>
-            <input type="text" name="Facebook" class="form-control" placeholder="Facebook" value="">
-         </l1>
-      </ul>
-      <ul class="socials">
-         <li>
-            <i class ="icon twitter"></i>
-            <input type="text" name="Twitter" class="form-control" placeholder="Twitter" value="">
-         </li>
-      </ul>
-      <div class="about">
-         <h3>Acerca de mi</h3>
-         <input type="text" name="Acerca de mi" class="form-control" placeholder="Acerca de mi" value="">
-         <h3>Opciones:</h4>
-         <a href="/play">Volver a play!</a>
-         <a href="/miPerfil">Terminar de modificar</a>
-      </div>
+
+
+
+
+      <form action="/modificarMiPerfil" method="post">
+
+         <h1 class="subtitle">Contáctame:</h1>
+         <ul class="socials">
+            <li>
+               <i class ="icon email"></i>
+               <input type="text" name="email" class="form-control" placeholder="Direccion de correo" value= "<%= user.email %>">
+            </li>
+         </ul>
+         <ul class="socials">
+            <li>
+               <i class ="icon facebook"></i>
+               <input type="text" name="facebook" class="form-control" placeholder="Link de tu Facebook" value= "<%= user.facebook %>">
+            </l1>
+         </ul>
+         <ul class="socials">
+            <li>
+               <i class ="icon twitter"></i>
+               <input type="text" name="twitter" class="form-control" placeholder="Link de tu Twitter" value= "<%= user.twitter %>">
+            </li>
+         </ul>
+
+
+
+
+         <div class="about">
+            <h3>Acerca de mi</h3>
+
+            <input type="text" name="description" class="form-control" placeholder="Acerca de mi" value= "<%= user.description %>">
+
+            <h3>Opciones:</h4>
+            <!--
+               <a href="/play">Volver a play!</a>
+            -->
+            <!--
+               <button href="/miPerfil" >Guardar y confirmar los cambios</button>
+            -->
+                     
+      
+            <button onclick="location.href = '/play';" id="myButton" class="float-left submit-button" >Volver sin modificar</button>
+            
+            <input class="botons" type="submit" name="button" value="Confirmar cambios" />
+            
+         </div>
+
+   </form>
    </body>
 </html>
 
+<!--
+<button type="submit">Confirmar cambios</button>
 
 
+        <div class="checkbox">
+            <label>
+               <input type="radio" value="H" name="sexo" >
+               <input type="radio" value="M" name="sexo" >
+            </label>
+         </div>
+
+
+      <button id="submit-button" type="submit" >Confirmar cambios</button> < !--class="btn bg-primary-color mb-3" -- >
+      <input class="controls" type="password" name="password" placeholder="Password" />
+      <input class="botons" type="submit" name="button" value="Crear usuario" />
+      <p><button type="submit">Enviar formulario</button></p>         
+
+-->

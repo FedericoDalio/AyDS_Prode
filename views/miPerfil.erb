@@ -53,6 +53,8 @@
             color: #ad0000;
             */
             color: #FFFFFF;
+            display: block !important;
+            margin: 10px;
          }
          a:hover{
             
@@ -100,13 +102,20 @@
          }
          .about p {
             color: #545454;
-            font-size: 14px;
+            font-size: 16px;
          }
          .about a {
             list-style: none;
             padding: 0;
             display: inline-block;
             margin: 5px;
+         }
+         .buttonOrder {
+            
+            display: inline-block;
+               
+            zoom: 1;
+
          }
       </style>
    </head>
@@ -129,7 +138,8 @@
       <ul class="socials">
          <li>
             <i class ="icon email"></i>
-            <a href=<%= user.email %>>Correo</a>
+            <%emailredirec = "mailto:"%>
+            <a href=<%=emailredirec + user.email %>>Correo</a>
             <!--
                "mailto:fede.dalio1@gmail.com"
                "https://facebook.com/federico.dalio.94"
@@ -151,8 +161,13 @@
          <%= user.description %>
          </p>
          <h3>Opciones:</h4>
+
+         <button onclick="location.href = '/play';" style="width:130px;margin:0 auto;display:block;" id="myButton" class="buttonOrder" >Volver al menú</button>
+         <button onclick="location.href = '/modificarMiPerfil';" style="width:130px;margin:0 auto;display:block;" id="myButton" class="buttonOrder" >Modificar mi perfil</button>
+         <!--
          <a href="/play">Volver a play!</a>
          <a href="/modificarMiPerfil">Modificar Mi Perfil</a>
+         -->
       </div>
    </body>
 </html>

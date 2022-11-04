@@ -78,6 +78,8 @@ GEM
     sinatra-activerecord (2.0.25)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     sqlite3 (1.4.2)
     tilt (2.0.10)
     tzinfo (2.0.4)
@@ -96,6 +98,7 @@ DEPENDENCIES
   sinatra!
   sinatra-activerecord
   sinatra-contrib!
+  sinatra-flash
   sqlite3
 
 RUBY VERSION
