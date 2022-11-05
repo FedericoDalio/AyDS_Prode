@@ -214,7 +214,15 @@ if Sinatra::Base.environment == :development
       gambler.facebook = request['facebook']
       gambler.twitter = request['twitter']
       gambler.description = request['description']
-      gambler.save  #Guardado de valor nuevo
+
+      #cadena_avatar = request['avatar']
+      #cadena_avatar.chars.last(1).join
+      #gambler.avatar_selected = cadena_avatar
+
+      #gambler.avatar_selected = request['avatar'][9]
+
+      gambler.avatar_selected = request['avatar_selected']
+      gambler.save  #Guardado de valores nuevos
 
 
       redirect '/miPerfil'

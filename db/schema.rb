@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_03_225431) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_05_041007) do
   create_table "forecasts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "match_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_225431) do
     t.text "email"
     t.text "facebook"
     t.text "twitter"
+    t.text "avatar_selected"
   end
 
   add_foreign_key "matches", "teams", column: "local_id"

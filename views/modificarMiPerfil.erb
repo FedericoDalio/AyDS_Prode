@@ -9,7 +9,7 @@
             padding: 12px;
          }
          .body {
-            background: url(./img/fondo_perfil_usuario.jpg);
+            background: url(./img/fondo_miPerfil.png);
             background-size: 100%;
          }
          .avatar {
@@ -141,9 +141,9 @@
          <div class="container">         
          <link rel="stylesheet" href="./perfil.css">
          -->
-         <img 
+        <img 
          class="avatar"
-         src="https://www.emmegi.co.uk/wp-content/uploads/2019/01/User-Icon.jpg" />
+         src="./img/profile_pictures/<%=user.avatar_selected%>.png" />
 
          <!-- CAMBIO DE AVATAR
          <div class="change-avatar">
@@ -231,39 +231,22 @@
 
             <div class="about-change-avatar">
 
-               <h3>Choose your avatar!</h3>
+               <h3>Elige tu avatar!</h3>
+               <h3>Escribe el número de avatar que quieres utilizar</h3>
+            </div>    
+            <div class="about-change-avatar">           
+               <input type="text" name="avatar_selected" size="2" class="form-control" placeholder="Número" value= "<%= user.avatar_selected %>">
+               
+               <label><img src="./img/profile_pictures/1.png" class="avatar-change">1</label>
+
+              
+               <label><img src="./img/profile_pictures/2.png" class="avatar-change">2</label>
 
                
-               <input type= "radio" name="avatar" id="avatar1-radio" value="avatar1">
-               <label for="avatar1-radio"><img src="./img/profile_pictures/1.png" class="avatar-change"></label>
-
-               <input type= "radio" name="avatar" id="avatar2-radio" value="avatar2">
-               <label for="avatar2-radio"><img src="./img/profile_pictures/2.png" class="avatar-change"></label>
-
-               <input type= "radio" name="avatar" id="avatar3-radio">
-               <label for="avatar3-radio"><img src="./img/profile_pictures/3.png" class="avatar-change"></label>
+               <label><img src="./img/profile_pictures/3.png" class="avatar-change">3</label>
 
             </div>
-            <div class="about-change-avatar">
-               <input type= "radio" name="avatar" id="avatar4-radio">
-               <label for="avatar4-radio"><img src="./img/profile_pictures/4.png" class="avatar-change"></label>    
-
-               <input type= "radio" name="avatar" id="avatar5-radio">
-               <label for="avatar5-radio"><img src="./img/profile_pictures/5.png" class="avatar-change"></label>  
-
-               <input type= "radio" name="avatar" id="avatar6-radio">
-               <label for="avatar6-radio"><img src="./img/profile_pictures/6.png" class="avatar-change"></label>  
-            </div>
-            <div class="about-change-avatar">
-               <input type= "radio" name="avatar" id="avatar7-radio">
-               <label for="avatar7-radio"><img src="./img/profile_pictures/7.png" class="avatar-change"></label>  
-
-               <input type= "radio" name="avatar" id="avatar8-radio">
-               <label for="avatar8-radio"><img src="./img/profile_pictures/8.png" class="avatar-change"></label>  
-
-               <input type= "radio" name="avatar" id="avatar9-radio">
-               <label for="avatar9-radio"><img src="./img/profile_pictures/9.png" class="avatar-change"></label>
-            </div>                                                                                     
+                                                                                    
          
 
       </form>

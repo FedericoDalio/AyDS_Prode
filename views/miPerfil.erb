@@ -19,7 +19,7 @@
             /*
             background: linear-gradient(to right, #ff9472, #f2709c);
             */
-            background: url(./img/fondo_perfil_usuario.jpg);
+            background: url(./img/fondo_miPerfil.png);
             background-size: 100%;
 
          }
@@ -118,14 +118,6 @@
 
          }
 
-         input[type="submit"]{
-           border: none;
-           color: white;
-           font-size: 15px;
-           padding: 5px 15px;
-           background:  #9c00c2;
-           border-radius: .25rem;
-         }         
       </style>
    </head>
    <%= user = User.find_by(id: session[:user_id]) %>
@@ -139,7 +131,14 @@
          -->
          <img 
          class="avatar"
+         src="./img/profile_pictures/<%=user.avatar_selected%>.png" />
+
+         <!--
+         <img 
+         class="avatar"
          src="https://www.emmegi.co.uk/wp-content/uploads/2019/01/User-Icon.jpg" />
+         -->
+
          <h1 class="user-name">Nombre de usuario: <%= user.name %></h1>
          <h1 class="user-name">Puntuacion total: <%= user.total_score %></h1>
       </div>
