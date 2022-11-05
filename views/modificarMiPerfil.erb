@@ -160,7 +160,14 @@
          <div class="about">
             <h3>Acerca de mi</h3>
 
-            <input type="text" name="description" class="form-control" placeholder="Acerca de mi" value= "<%= user.description %>">
+            <!-- 
+
+            <Textarea name="description" rows = "10" cols = "50" placeholder="Escribe aquí tus comentarios" value= "<%= user.description %>"> </textarea>
+            -->
+
+              
+            <input type="text" name="description" class="form-control" placeholder="Escribe aquí tus comentarios" value= "<%= user.description %>">
+            
 
             <h3>Opciones:</h4>
             <!--
@@ -170,9 +177,10 @@
                <button href="/miPerfil" >Guardar y confirmar los cambios</button>
             -->
                      
-      
+            <!--
             <button onclick="location.href = '/play';" id="myButton" class="float-left submit-button" >Volver sin modificar</button>
-            
+            -->
+
             <input class="botons" type="submit" name="button" value="Confirmar cambios" />
             
          </div>
