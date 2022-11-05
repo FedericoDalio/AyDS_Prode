@@ -9,7 +9,7 @@
             padding: 12px;
          }
          .body {
-            background: url(./img/fondo_pred.jpg);
+            background: url(./img/fondo_perfil_usuario.jpg);
             background-size: 100%;
          }
          .avatar {
@@ -17,6 +17,12 @@
             height: 200px;
             border-radius: 50%;
          }
+         .avatar-change {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0;
+         }         
          .user-name {
             font-size: 18px;
             margin-top: 14px;
@@ -71,7 +77,7 @@
             margin: 100px auto 0;
             padding: 10px;
             box-sizing: border-box;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);
+            /*box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);*/
             border-radius: 5px;
             overflow: hidden;
 
@@ -81,11 +87,11 @@
             text-align:center
          }
          .about h3 {
-            color: #545454;
+            color: #1c1a1d;
             font-size: 16px;
          }
          .about p {
-            color: #545454;
+            color: #1c1a1d;
             font-size: 14px;
          }
          .about a {
@@ -95,7 +101,34 @@
             /*display: inline-block;*/
             margin: 10px;
          }
-         .
+         .about-change-avatar {
+            background-color: #FB5BEE;
+            color: #1c1a1d;
+
+            position: relative;
+            width: 450px;
+            margin: 0px auto 0;
+            padding: 10px;
+            box-sizing: border-box;
+            
+            border-radius: 5px;
+            overflow: hidden;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align:center
+         }
+         /*
+         input[type="submit"]{
+           border: none;
+           color: white;
+           font-size: 15px;
+           padding: 5px 15px;
+           background:  #9c00c2;
+           border-radius: .25rem;
+         }         
+         */
       </style>
    </head>
    <%= user = User.find_by(id: session[:user_id]) %>
@@ -112,20 +145,30 @@
          class="avatar"
          src="https://www.emmegi.co.uk/wp-content/uploads/2019/01/User-Icon.jpg" />
 
-<!-- CAMBIO DE AVATAR
+         <!-- CAMBIO DE AVATAR
          <div class="change-avatar">
             <label for="exampleInputFile">Cambiar mi avatar:</label>
          </div>
          <div class="change-avatar">
             <input type="file" name="avatar" >
          </div>
--->
+         -->
 
 
          <h1 class="user-name">Nombre de usuario: <%= user.name %></h1>
          <h1 class="user-name">Puntuacion total: <%= user.total_score %></h1>
 
-         
+        
+
+
+
+
+
+
+
+
+
+
          
       </div>
 
@@ -185,8 +228,53 @@
             
          </div>
 
-   </form>
+
+            <div class="about-change-avatar">
+
+               <h3>Choose your avatar!</h3>
+
+               
+               <input type= "radio" name="avatar" id="avatar1-radio" value="avatar1">
+               <label for="avatar1-radio"><img src="./img/profile_pictures/1.png" class="avatar-change"></label>
+
+               <input type= "radio" name="avatar" id="avatar2-radio" value="avatar2">
+               <label for="avatar2-radio"><img src="./img/profile_pictures/2.png" class="avatar-change"></label>
+
+               <input type= "radio" name="avatar" id="avatar3-radio">
+               <label for="avatar3-radio"><img src="./img/profile_pictures/3.png" class="avatar-change"></label>
+
+            </div>
+            <div class="about-change-avatar">
+               <input type= "radio" name="avatar" id="avatar4-radio">
+               <label for="avatar4-radio"><img src="./img/profile_pictures/4.png" class="avatar-change"></label>    
+
+               <input type= "radio" name="avatar" id="avatar5-radio">
+               <label for="avatar5-radio"><img src="./img/profile_pictures/5.png" class="avatar-change"></label>  
+
+               <input type= "radio" name="avatar" id="avatar6-radio">
+               <label for="avatar6-radio"><img src="./img/profile_pictures/6.png" class="avatar-change"></label>  
+            </div>
+            <div class="about-change-avatar">
+               <input type= "radio" name="avatar" id="avatar7-radio">
+               <label for="avatar7-radio"><img src="./img/profile_pictures/7.png" class="avatar-change"></label>  
+
+               <input type= "radio" name="avatar" id="avatar8-radio">
+               <label for="avatar8-radio"><img src="./img/profile_pictures/8.png" class="avatar-change"></label>  
+
+               <input type= "radio" name="avatar" id="avatar9-radio">
+               <label for="avatar9-radio"><img src="./img/profile_pictures/9.png" class="avatar-change"></label>
+            </div>                                                                                     
+         
+
+      </form>
    </body>
+
+
+
+
+
+
+
 </html>
 
 <!--

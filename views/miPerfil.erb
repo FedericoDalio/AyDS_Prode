@@ -19,7 +19,7 @@
             /*
             background: linear-gradient(to right, #ff9472, #f2709c);
             */
-            background: url(./img/fondo_pred.jpg);
+            background: url(./img/fondo_perfil_usuario.jpg);
             background-size: 100%;
 
          }
@@ -97,11 +97,11 @@
 
          }
          .about h3 {
-            color: #545454;
+            color: #1c1a1d;
             font-size: 16px;
          }
          .about p {
-            color: #545454;
+            color: #1c1a1d;
             font-size: 16px;
          }
          .about a {
@@ -117,6 +117,15 @@
             zoom: 1;
 
          }
+
+         input[type="submit"]{
+           border: none;
+           color: white;
+           font-size: 15px;
+           padding: 5px 15px;
+           background:  #9c00c2;
+           border-radius: .25rem;
+         }         
       </style>
    </head>
    <%= user = User.find_by(id: session[:user_id]) %>
