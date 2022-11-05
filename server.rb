@@ -4,6 +4,7 @@ require 'sinatra/activerecord'
 require 'sinatra/reloader'
 require_relative './models/init'
 require_relative './models/result'
+require 'sinatra/flash'
 # #require_relative './models/user'
 
 if Sinatra::Base.environment == :development
@@ -201,7 +202,23 @@ if Sinatra::Base.environment == :development
     end
 
     post '/modificarMiPerfil' do
-      erb :modificarMiPerfil
+
+      gambler = User.find_by(id: session[:user_id])
+      json = request.params 
+      logger.info json 
+      logger.info gambler
+
+      #gambler.update(facebook: request['facebook'])
+      
+      gambler.email = request['email']
+      gambler.facebook = request['facebook']
+      gambler.twitter = request['twitter']
+      gambler.description = request['description']
+      gambler.save  #Guardado de valor nuevo
+
+
+      redirect '/miPerfil'
+      #erb :modificarMiPerfil
     end
     
     
