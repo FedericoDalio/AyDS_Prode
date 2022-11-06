@@ -27,8 +27,8 @@ if Sinatra::Base.environment == :development
       erb :inicio
     end
  
-    get '/IngresarUsuario' do
-      erb :IngresarUsuario
+    get '/ingresarUsuario' do
+      erb :ingresarUsuario
     end
  
 
@@ -202,6 +202,12 @@ if Sinatra::Base.environment == :development
       erb :perfilEquipo
     end
 
+    post '/ingresarUsuario' do
+      @arreglo = []
+      User.where(name: request['nombre']).find_each do |usuario|
+        @arreglo.push(usuario)
+      end
+      end
 
     post '/miPerfil' do
       erb :miPerfil
