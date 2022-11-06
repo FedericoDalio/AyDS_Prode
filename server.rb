@@ -27,6 +27,11 @@ if Sinatra::Base.environment == :development
       erb :inicio
     end
  
+    get '/IngresarUsuario' do
+      erb :IngresarUsuario
+    end
+ 
+
     get '/cambiarContrasenia' do
       erb :cambiarContrasenia
     end
@@ -142,7 +147,7 @@ if Sinatra::Base.environment == :development
 
     post '/signup' do
       if params['username'] != User.find_by(name: request['username'])
-        User.create(name: params['username'], password: request['password'], total_score: 0, description: " ", email: params['email'], facebook: " ", twitter: " ", avatar_selected: "1")
+        User.create(name: params['username'], password: request['password'], total_score: 0, description: " ", email: params['email'], facebook: " ", twitter: " ", avatar_selected: "1",preguntaseguridad: params['pregunta'],respuestaseguridad: params['respuesta'])
 
         redirect '/login'
       else
