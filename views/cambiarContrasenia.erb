@@ -8,14 +8,21 @@
   <title>Cambio de contraseña</title>
   </head>
     <body>
+
+
       <section class="form-register">
   <form action="/cambiarContrasenia" method="post">
     <h4>Cambia tu contraseña</h4>
-      <input class="controls" type="text" name="username" placeholder="Nombre de usuario" />
+     <% @arreglo.each do |user| %>
+      <h1> Logged In As <%= user.name %> </h1>
+      <% end %>
+    
+        
       <input class="controls" type="password" name="password" placeholder="Password" />
       <input class="controls" type="password" name="passwordconfirm" placeholder="Confirm Password" />
       <input class="botons" type="submit" name="button" value="Cambia tu contraseña" />
+
   </form>
-      </section>
+             </section>
     </body>
   </html>
