@@ -312,7 +312,7 @@ if Sinatra::Base.environment == :development
       if session[:user_id]
         @current_user = User.find_by(id: session[:user_id])
       else
-        public_pages = ['/', '/login', '/signup']
+        public_pages = ['/', '/login', '/signup', '/ingresarUsuario', '/cambiarContrasenia']
         redirect '/login' unless public_pages.include?(request.path_info)
       end
     end
