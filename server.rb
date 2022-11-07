@@ -147,7 +147,7 @@ if Sinatra::Base.environment == :development
 
     post '/signup' do
       if params['username'] != User.find_by(name: request['username'])
-        User.create(name: params['username'], password: request['password'], total_score: 0, description: " ", email: params['email'], facebook: " ", twitter: " ", avatar_selected: "1",preguntaseguridad: params['pregunta'],respuestaseguridad: params['respuesta'])
+        User.create(name: params['username'], password: request['password'], total_score: 0, description: " ", email: params['email'], facebook: " ", twitter: " ", avatar_selected: "1", preguntaseguridad: params['pregunta'],respuestaseguridad: params['respuesta'])
 
         redirect '/login'
       else
@@ -204,10 +204,9 @@ if Sinatra::Base.environment == :development
 
     post '/ingresarUsuario' do
       @arreglo = []
-      User.where(name: request['nombre']).find_each do |usuario|
-        @arreglo.push(usuario)
-
-      end
+        User.where(email: request['email']).find_each do |user|
+        @arreglo.push(user)
+      end 
         erb :cambiarContrasenia
       end
 
@@ -245,16 +244,18 @@ if Sinatra::Base.environment == :development
     
     
     post '/cambiarContrasenia' do
+      User.where(respuestaseguridad: request['respuesta']).find_each do |user|
       json = request.params 
       logger.info json 
-      logger.info gambler
+      logger.info user
       if(request['password'] == request['passwordconfirm'])#Confirma que las contraseñas sean iguales
-        gambler.password = (json['passwordconfirm']) #Cambio de valor
-        gambler.save  #Guardado de valor nuevo
+        user.password = (json['passwordconfirm']) #Cambio de valor
+        user.save  #Guardado de valor nuevo
         redirect '/login'
       else
         redirect '/signup'
       end
+    end
     end
    
     post '/verPartidos' do
