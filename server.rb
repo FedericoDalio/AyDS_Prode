@@ -4,6 +4,7 @@ require 'sinatra/activerecord'
 require 'sinatra/reloader'
 require_relative './models/init'
 require_relative './models/result'
+require 'sinatra/flash'
 # #require_relative './models/user'
 
 if Sinatra::Base.environment == :development
@@ -26,6 +27,11 @@ if Sinatra::Base.environment == :development
       erb :inicio
     end
  
+    get '/ingresarUsuario' do
+      erb :ingresarUsuario
+    end
+ 
+
     get '/cambiarContrasenia' do
       erb :cambiarContrasenia
     end
@@ -123,6 +129,10 @@ if Sinatra::Base.environment == :development
       end
     end
 
+    get '/modificarMiPerfil' do
+      erb :modificarMiPerfil
+    end
+
     # implement a login method
 
     post '/login' do
@@ -137,7 +147,8 @@ if Sinatra::Base.environment == :development
 
     post '/signup' do
       if params['username'] != User.find_by(name: request['username'])
-        User.create(name: params['username'], password: request['password'], total_score: 0)
+        User.create(name: params['username'], password: request['password'], total_score: 0, description: " ", email: params['email'], facebook: " ", twitter: " ", avatar_selected: "1", preguntaseguridad: params['pregunta'],respuestaseguridad: params['respuesta'])
+
         redirect '/login'
       else
         redirect '/signup'
@@ -191,23 +202,60 @@ if Sinatra::Base.environment == :development
       erb :perfilEquipo
     end
 
+    post '/ingresarUsuario' do
+      @arreglo = []
+        User.where(email: request['email']).find_each do |user|
+        @arreglo.push(user)
+      end 
+        erb :cambiarContrasenia
+      end
 
     post '/miPerfil' do
       erb :miPerfil
     end
-    
-    post '/cambiarContrasenia' do
-      gambler = User.find_by(name: request['username'])
+
+    post '/modificarMiPerfil' do
+
+      gambler = User.find_by(id: session[:user_id])
       json = request.params 
       logger.info json 
       logger.info gambler
-      if(gambler && (request['password'] == request['passwordconfirm'])) #Confirma que las contraseñas sean iguales
-        gambler.password = (json['passwordconfirm']) #Cambio de valor
-        gambler.save  #Guardado de valor nuevo
+
+      #gambler.update(facebook: request['facebook'])
+      
+      gambler.email = request['email']
+      gambler.facebook = request['facebook']
+      gambler.twitter = request['twitter']
+      gambler.description = request['description']
+
+      #cadena_avatar = request['avatar']
+      #cadena_avatar.chars.last(1).join
+      #gambler.avatar_selected = cadena_avatar
+
+      #gambler.avatar_selected = request['avatar'][9]
+
+      gambler.avatar_selected = request['avatar_selected']
+      gambler.save  #Guardado de valores nuevos
+
+
+      redirect '/miPerfil'
+      #erb :modificarMiPerfil
+    end
+    
+    
+    post '/cambiarContrasenia' do
+      User.where(respuestaseguridad: request['respuesta']).find_each do |user|
+      json = request.params 
+      logger.info json 
+      logger.info user
+      if(request['password'] == request['passwordconfirm'])#Confirma que las contraseñas sean iguales
+        user.password = (json['passwordconfirm']) #Cambio de valor
+        user.save  #Guardado de valor nuevo
         redirect '/login'
       else
         redirect '/signup'
       end
+    end
     end
    
     post '/verPartidos' do

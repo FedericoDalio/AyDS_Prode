@@ -13,6 +13,7 @@ gem 'rake'
 gem 'rubocop', require: false
 gem 'sinatra-activerecord'
 gem 'sqlite3'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

@@ -19,7 +19,7 @@
             /*
             background: linear-gradient(to right, #ff9472, #f2709c);
             */
-            background: url(./img/fondo_pred.jpg);
+            background: url(./img/fondo_miPerfil.png);
             background-size: 100%;
 
          }
@@ -53,6 +53,8 @@
             color: #ad0000;
             */
             color: #FFFFFF;
+            display: block !important;
+            margin: 10px;
          }
          a:hover{
             
@@ -95,12 +97,12 @@
 
          }
          .about h3 {
-            color: #545454;
+            color: #1c1a1d;
             font-size: 16px;
          }
          .about p {
-            color: #545454;
-            font-size: 14px;
+            color: #1c1a1d;
+            font-size: 16px;
          }
          .about a {
             list-style: none;
@@ -108,6 +110,14 @@
             display: inline-block;
             margin: 5px;
          }
+         .buttonOrder {
+            
+            display: inline-block;
+               
+            zoom: 1;
+
+         }
+
       </style>
    </head>
    <%= user = User.find_by(id: session[:user_id]) %>
@@ -121,7 +131,14 @@
          -->
          <img 
          class="avatar"
+         src="./img/profile_pictures/<%=user.avatar_selected%>.png" />
+
+         <!--
+         <img 
+         class="avatar"
          src="https://www.emmegi.co.uk/wp-content/uploads/2019/01/User-Icon.jpg" />
+         -->
+
          <h1 class="user-name">Nombre de usuario: <%= user.name %></h1>
          <h1 class="user-name">Puntuacion total: <%= user.total_score %></h1>
       </div>
@@ -129,24 +146,36 @@
       <ul class="socials">
          <li>
             <i class ="icon email"></i>
-            <a href="mailto:fede.dalio1@gmail.com">Correo</a>
+            <%emailredirec = "mailto:"%>
+            <a href=<%=emailredirec + user.email %>>Correo</a>
+            <!--
+               "mailto:fede.dalio1@gmail.com"
+               "https://facebook.com/federico.dalio.94"
+               "https://twitter.com/@fede_dalio"
+            -->
          </li>
          <li>
             <i class ="icon facebook"></i>
-            <a href="https://facebook.com/federico.dalio.94">Facebook</a>
+            <a href=<%= user.facebook %>>Facebook</a>
          </l1>
          <li>
             <i class ="icon twitter"></i>
-            <a href="https://twitter.com/@fede_dalio ">Twitter</a>
+            <a href=<%= user.twitter %>>Twitter</a>
          </li>
       </ul>
       <div class="about">
          <h3>Acerca de mi</h3>
          <p>
-         Técnico superior en desarrollo de aplicaciones y plataformas con amplios conocimientos en back-end, desarrollados a través de proyectos propios. Busco desarrollar mi carrera, ayudando a TechSoft Solutions, contribuyendo con mis habilidades en C#, ASP.NET y Azure para lograr diseños finales que satisfagan las necesidades y preferencias de los clientes.
+         <%= user.description %>
          </p>
          <h3>Opciones:</h4>
+
+         <button onclick="location.href = '/play';" style="width:130px;margin:0 auto;display:block;" id="myButton" class="buttonOrder" >Volver al menú</button>
+         <button onclick="location.href = '/modificarMiPerfil';" style="width:130px;margin:0 auto;display:block;" id="myButton" class="buttonOrder" >Modificar mi perfil</button>
+         <!--
          <a href="/play">Volver a play!</a>
+         <a href="/modificarMiPerfil">Modificar Mi Perfil</a>
+         -->
       </div>
    </body>
 </html>

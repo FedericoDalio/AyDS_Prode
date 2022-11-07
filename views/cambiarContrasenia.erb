@@ -4,18 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-">
   <meta http-equiv="X-UA-Compatible" content="ie-edge">
-  <link rel="stylesheet" href="./estilos3.css">
+  <link rel="stylesheet" href="./estilos4.css">
   <title>Cambio de contraseña</title>
   </head>
     <body>
+     
+
       <section class="form-register">
   <form action="/cambiarContrasenia" method="post">
     <h4>Cambia tu contraseña</h4>
-      <input class="controls" type="text" name="username" placeholder="Nombre de usuario" />
+
+      <% @arreglo.each do |user| %>
+     <span class="name"> <%= user.name%></span> 
+
+     
+
       <input class="controls" type="password" name="password" placeholder="Password" />
       <input class="controls" type="password" name="passwordconfirm" placeholder="Confirm Password" />
+      <span class="pregunta"> <%= user.preguntaseguridad%></span> <!-- Muestra por pantalla la pregunta del usuario, abajo el input de la respuesta --> 
+      <input class="controls" type="text" name="respuesta" placeholder="Respuesta Pregunta" />
       <input class="botons" type="submit" name="button" value="Cambia tu contraseña" />
+     <% end %>
   </form>
-      </section>
+             </section>
     </body>
   </html>

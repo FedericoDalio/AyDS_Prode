@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         .header {
+            text-align: center;
+            height: 300px;
+            padding: 12px;
+         }
+         .body {
+            background: url(./img/fondo_miPerfil.png);
+            background-size: 100%;
+         }
+         .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+         }
+         .avatar-change {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0;
+         }         
+         .user-name {
+            font-size: 18px;
+            margin-top: 14px;
+            color: #FFFFFF;
+         }
+         .socials {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+         }
+         .socials li{
+            display: inline-block;
+            margin: 5px;
+         }
+         .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #FFFFFF;
+         }
+         .change-avatar {
+            text-align: center;
+            font-size: 14px;
+            color: #FFFFFF;
+         }         
+         a {
+            text-decoration : none;
+            color: #FFFFFF;
+         }
+         a:hover{           
+            color: #dd1919;
+         }
+         .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background-size: cover;
+         }
+         .email {
+            background-image : url("https://cdn-icons-png.flaticon.com/512/6788/6788206.png");
+         }
+         .facebook {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/733/733547.png");
+         }
+         .twitter {
+         background-image: url("https://cdn-icons-png.flaticon.com/512/733/733579.png");
+         }
+         .about {
+            background-color: #FB5BEE;
+
+            position: relative;
+            width: 450px;
+            margin: 100px auto 0;
+            padding: 10px;
+            box-sizing: border-box;
+            /*box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);*/
+            border-radius: 5px;
+            overflow: hidden;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align:center
+         }
+         .about h3 {
+            color: #1c1a1d;
+            font-size: 16px;
+         }
+         .about p {
+            color: #1c1a1d;
+            font-size: 14px;
+         }
+         .about a {
+            list-style: none;
+            padding: 0;
+            display: block !important;
+            /*display: inline-block;*/
+            margin: 10px;
+         }
+         .about-change-avatar {
+            background-color: #FB5BEE;
+            color: #1c1a1d;
+
+            position: relative;
+            width: 450px;
+            margin: 0px auto 0;
+            padding: 10px;
+            box-sizing: border-box;
+            
+            border-radius: 5px;
+            overflow: hidden;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align:center
+         }
+         /*
+         input[type="submit"]{
+           border: none;
+           color: white;
+           font-size: 15px;
+           padding: 5px 15px;
+           background:  #9c00c2;
+           border-radius: .25rem;
+         }         
+         */
+      </style>
+   </head>
+   <%= user = User.find_by(id: session[:user_id]) %>
+   <body class="body">
+
+      <Body
+      background="/AyDS_Prode/public/img/fondo_perfil.jpg">
+      <div class="header">
+         <!--
+         <div class="container">         
+         <link rel="stylesheet" href="./perfil.css">
+         -->
+        <img 
+         class="avatar"
+         src="./img/profile_pictures/<%=user.avatar_selected%>.png" />
+
+         <!-- CAMBIO DE AVATAR
+         <div class="change-avatar">
+            <label for="exampleInputFile">Cambiar mi avatar:</label>
+         </div>
+         <div class="change-avatar">
+            <input type="file" name="avatar" >
+         </div>
+         -->
+
+
+         <h1 class="user-name">Nombre de usuario: <%= user.name %></h1>
+         <h1 class="user-name">Puntuacion total: <%= user.total_score %></h1>
+
+        
+
+
+
+
+
+
+
+
+
+
+         
+      </div>
+
+
+
+
+      <form action="/modificarMiPerfil" method="post">
+
+         <h1 class="subtitle">Contáctame:</h1>
+         <ul class="socials">
+            <li>
+               <i class ="icon email"></i>
+               <input type="text" name="email" class="form-control" placeholder="Direccion de correo" value= "<%= user.email %>">
+            </li>
+         </ul>
+         <ul class="socials">
+            <li>
+               <i class ="icon facebook"></i>
+               <input type="text" name="facebook" class="form-control" placeholder="Link de tu Facebook" value= "<%= user.facebook %>">
+            </l1>
+         </ul>
+         <ul class="socials">
+            <li>
+               <i class ="icon twitter"></i>
+               <input type="text" name="twitter" class="form-control" placeholder="Link de tu Twitter" value= "<%= user.twitter %>">
+            </li>
+         </ul>
+
+
+
+
+         <div class="about">
+            <h3>Acerca de mi</h3>
+
+            <!-- 
+
+            <Textarea name="description" rows = "10" cols = "50" placeholder="Escribe aquí tus comentarios" value= "<%= user.description %>"> </textarea>
+            -->
+
+              
+            <input type="text" name="description" class="form-control" placeholder="Escribe aquí tus comentarios" value= "<%= user.description %>">
+            
+
+            <h3>Opciones:</h4>
+            <!--
+               <a href="/play">Volver a play!</a>
+            -->
+            <!--
+               <button href="/miPerfil" >Guardar y confirmar los cambios</button>
+            -->
+                     
+            <!--
+            <button onclick="location.href = '/play';" id="myButton" class="float-left submit-button" >Volver sin modificar</button>
+            -->
+
+            <input class="botons" type="submit" name="button" value="Confirmar cambios" />
+            
+         </div>
+
+
+            <div class="about-change-avatar">
+
+               <h3>Elige tu avatar!</h3>
+               <h3>Escribe el número de avatar que quieres utilizar</h3>
+               <input type="text" name="avatar_selected" size="2" class="form-control" placeholder="Número" value= "<%= user.avatar_selected %>">
+            </div>    
+            <div class="about-change-avatar">           
+               <label><img src="./img/profile_pictures/1.png" class="avatar-change">1</label>        
+               <label><img src="./img/profile_pictures/2.png" class="avatar-change">2</label>
+               <label><img src="./img/profile_pictures/3.png" class="avatar-change">3</label>
+            </div>
+                      
+            <div class="about-change-avatar">
+               <label><img src="./img/profile_pictures/4.png" class="avatar-change">4</label>
+               <label><img src="./img/profile_pictures/5.png" class="avatar-change">5</label>  
+               <label><img src="./img/profile_pictures/6.png" class="avatar-change">6</label>  
+            </div>
+
+            <div class="about-change-avatar">
+               <label><img src="./img/profile_pictures/7.png" class="avatar-change">7</label>
+               <label><img src="./img/profile_pictures/8.png" class="avatar-change">8</label> 
+               <label><img src="./img/profile_pictures/9.png" class="avatar-change">9</label>
+            </div> 
+      </form>
+   </body>
+
+
+
+
+
+
+
+</html>
+
+<!--
+<button type="submit">Confirmar cambios</button>
+
+
+        <div class="checkbox">
+            <label>
+               <input type="radio" value="H" name="sexo" >
+               <input type="radio" value="M" name="sexo" >
+            </label>
+         </div>
+
+
+      <button id="submit-button" type="submit" >Confirmar cambios</button> < !--class="btn bg-primary-color mb-3" -- >
+      <input class="controls" type="password" name="password" placeholder="Password" />
+      <input class="botons" type="submit" name="button" value="Crear usuario" />
+      <p><button type="submit">Enviar formulario</button></p>         
+
+-->
